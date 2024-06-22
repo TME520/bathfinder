@@ -1,9 +1,6 @@
 import cv2
 import numpy as np
 
-
-
-
 def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1,
                room_closing_max_length=100, gap_in_wall_threshold=500):
     """
@@ -21,7 +18,8 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1,
 
     img[img < 128] = 0
     img[img > 128] = 255
-    _, contours, _ = cv2.findContours(~img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    # _, contours, _ = cv2.findContours(~img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _ = cv2.findContours(img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     mask = np.zeros_like(img)
     for contour in contours:
         area = cv2.contourArea(contour)
@@ -81,8 +79,9 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1,
 
 
 #Read gray image
-img = cv2.imread("/home/veith/Pictures/room.png", 0)
+img = cv2.imread("./TRY005-floorplan001.jpg", 0)
 rooms, colored_house = find_rooms(img.copy())
 cv2.imshow('result', colored_house)
 cv2.waitKey()
 cv2.destroyAllWindows()
+

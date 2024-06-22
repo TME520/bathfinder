@@ -1,6 +1,7 @@
 import cv2
 import random
-img = cv2.imread('./lj_hx/zz.jpg')
+# img = cv2.imread('./TRY006-floorplan001.jpg')
+img = cv2.imread('./TRY005-floorplan001.jpg')
 
 gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
 
@@ -10,7 +11,8 @@ cv2.imshow("thresh", thresh)
 
 mor_img = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, (5, 5), iterations=3)
 
-_, contours, _ = cv2.findContours(mor_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+# _, contours, _ = cv2.findContours(mor_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+contours, _ = cv2.findContours(mor_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
 sorted_contours = sorted(contours, key=cv2.contourArea, reverse=True)
 
@@ -23,3 +25,4 @@ cv2.imshow("mor_img", mor_img)
 cv2.imshow("img", img)
 
 cv2.waitKey(0)
+

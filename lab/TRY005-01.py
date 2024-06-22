@@ -14,7 +14,7 @@ from utils import visualization_utils as vis_util
 
 # Name of the directory containing the object detection module we're using
 MODEL_NAME = 'inference_graph'
-IMAGE_NAME = 'floorplan2.jpg'
+IMAGE_NAME = './TRY005-floorplan001.jpg'
 #Remove Small Items
 im_gray = cv2.imread(IMAGE_NAME, cv2.IMREAD_GRAYSCALE)
 (thresh, im_bw) = cv2.threshold(im_gray, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
@@ -54,3 +54,4 @@ cv2.waitKey(0)
 
 # Clean up
 cv2.destroyAllWindows()
+
