@@ -22,6 +22,22 @@ if img is None:
     print('Could not open or find the image:', args.input)
     exit(0)
 
+print("Get pixel value")
+px = img[100,100]
+print(f"Value: {px}")
+
+# Image is BGR, Blue(0) - Green(1) - Red(2)
+blue = img[100,100,0]
+print(f"Blue: {blue}")
+green = img[100,100,1]
+print(f"Green: {green}")
+red = img[100,100,2]
+print(f"Red: {red}")
+
+print("Modify pixel color")
+img[100,100] = [255,255,255]
+print(f"{img[100,100]}")
+
 img_gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 cv.imwrite("img_gray_out.png", img_gray)
 
