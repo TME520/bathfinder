@@ -38,6 +38,12 @@ print("Modify pixel color")
 img[100,100] = [255,255,255]
 print(f"{img[100,100]}")
 
+print(f"Image properties (rows, columns, channels): {img.shape}")
+
+print("Experimenting with ROI, Region Of Interest")
+ball = img[280:340, 330:390]
+img[273:333, 100:160] = ball
+
 img_gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 cv.imwrite("img_gray_out.png", img_gray)
 
