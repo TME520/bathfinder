@@ -44,6 +44,11 @@ print("Experimenting with ROI, Region Of Interest")
 ball = img[280:340, 330:390]
 img[273:333, 100:160] = ball
 
+print("Find HSV value of a color")
+green = np.uint8([[[0,255,0 ]]])
+hsv_green = cv.cvtColor(green,cv.COLOR_BGR2HSV)
+print( hsv_green )
+
 img_gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 cv.imwrite("img_gray_out.png", img_gray)
 
