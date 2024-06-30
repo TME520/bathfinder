@@ -1,5 +1,6 @@
 # This version processes the base template for sink, shower and bathtub.
 # It also automatically looks for the rotated versions (rot90, rot180 and rot270)
+# Added support for doors and toilets
 
 import os
 
@@ -35,6 +36,8 @@ parser.add_argument('--floorplan', help='Path to input floorplan image.', defaul
 parser.add_argument('--sink', help='Path to input sink image.', default='sink.png')
 parser.add_argument('--shower', help='Path to input shower image.', default='shower.png')
 parser.add_argument('--bathtub', help='Path to input bathtub image.', default='bathtub.png')
+parser.add_argument('--toilet', help='Path to input toilet image.', default='toilet.png')
+parser.add_argument('--door', help='Path to input door image.', default='dor.png')
 args = parser.parse_args()
 
 print(f"[INFO] Load floorplan from file {args.floorplan}")
@@ -128,9 +131,37 @@ if os.path.isfile(bathtubrot270) is True:
   bathtubrot270img = cv.imread(cv.samples.findFile(bathtubrot270), cv.IMREAD_GRAYSCALE)
   bathtubrot270_w, bathtubrot270_h = bathtubrot270img.shape[::-1]
   spotanddraw(floorplan_rgb, floorplan_gray, bathtubrot270img, bathtubrot270_w, bathtubrot270_h, 0, 255, 0)
+
+print(f"[INFO] Load toilet from file {args.toilet}")
+toilet = cv.imread(cv.samples.findFile(args.toilet), cv.IMREAD_GRAYSCALE)
+if toilet is None:
+  print(f"[ERROR] Could not open or find the template toilet image {args.toilet}")
+  exit(0)
+toilet_w, toilet_h = toilet.shape[::-1]
+
+spotanddraw(floorplan_rgb, floorplan_gray, toilet, toilet_w, toilet_h, 100, 0, 0)
+
+toiletrot90=os.path.dirname(args.toilet) + '/' + os.path.splitext(os.path.basename(args.toilet))[0] + '-rot90' + os.path.splitext(os.path.basename(args.toilet))[1]
+toiletrot180=os.path.dirname(args.toilet) + '/' + os.path.splitext(os.path.basename(args.toilet))[0] + '-rot180' + os.path.splitext(os.path.basename(args.toilet))[1]
+toiletrot270=os.path.dirname(args.toilet) + '/' + os.path.splitext(os.path.basename(args.toilet))[0] + '-rot270' + os.path.splitext(os.path.basename(args.toilet))[1]
+if os.path.isfile(toiletrot90) is True:
+  print(f"[INFO] Additional ROT90 file found: {toiletrot90}")
+  toiletrot90img = cv.imread(cv.samples.findFile(toiletrot90), cv.IMREAD_GRAYSCALE)
+  toiletrot90_w, toiletrot90_h = toiletrot90img.shape[::-1]
+  spotanddraw(floorplan_rgb, floorplan_gray, toiletrot90img, toiletrot90_w, toiletrot90_h, 100, 0, 0)
+if os.path.isfile(toiletrot180) is True:
+  print(f"[INFO] Additional ROT180 file found: {toiletrot180}")
+  toiletrot180img = cv.imread(cv.samples.findFile(toiletrot180), cv.IMREAD_GRAYSCALE)
+  toiletrot180_w, toiletrot180_h = toiletrot180img.shape[::-1]
+  spotanddraw(floorplan_rgb, floorplan_gray, toiletrot180img, toiletrot180_w, toiletrot180_h, 100, 0, 0)
+if os.path.isfile(toiletrot270) is True:
+  print(f"[INFO] Additional ROT270 file found: {toiletrot270}")
+  toiletrot270img = cv.imread(cv.samples.findFile(toiletrot270), cv.IMREAD_GRAYSCALE)
+  toiletrot270_w, toiletrot270_h = toiletrot270img.shape[::-1]
+  spotanddraw(floorplan_rgb, floorplan_gray, toiletrot270img, toiletrot270_w, toiletrot270_h, 100, 0, 0)
  
 print("[INFO] Writing result file template_matching004-generic_output.png")
-cv.imwrite('template_matching005-generic_output.png',floorplan_rgb)
+cv.imwrite('template_matching006-generic_output.png',floorplan_rgb)
 
 print("[INFO] Done, exiting.")
 exit(0)
