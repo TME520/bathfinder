@@ -22,6 +22,13 @@ try:
   from matplotlib import pyplot as plt
 except ImportError:
   print('Cannot import pyplot module\nTry: pip3 install matplotlib') 
+
+def spotanddraw(floorplan_pic_rgb, floorplan_pic_gray, template_pic, template_w, template_h, border_color_r, border_color_g, border_color_b):
+  res = cv.matchTemplate(floorplan_pic_gray,template_pic,cv.TM_CCOEFF_NORMED)
+  threshold = 0.8
+  loc = np.where( res >= threshold)
+  for pt in zip(*loc[::-1]):
+    cv.rectangle(floorplan_pic_rgb, pt, (pt[0] + template_w, pt[1] + template_h), (border_color_r,border_color_g,border_color_b), 2)
  
 parser = argparse.ArgumentParser(description='Look for items and furniture on a floorplan')
 parser.add_argument('--floorplan', help='Path to input floorplan image.', default='floorplan.png')
@@ -45,21 +52,25 @@ if sink is None:
   exit(0)
 sink_w, sink_h = sink.shape[::-1]
 
+spotanddraw(floorplan_rgb, floorplan_gray, sink, sink_w, sink_h, 0, 0, 255)
+ 
+#res = cv.matchTemplate(floorplan_gray,sink,cv.TM_CCOEFF_NORMED)
+#threshold = 0.8
+#loc = np.where( res >= threshold)
+#for pt in zip(*loc[::-1]):
+#  cv.rectangle(floorplan_rgb, pt, (pt[0] + sink_w, pt[1] + sink_h), (0,0,255), 2)
+
 sinkrot90=os.path.dirname(args.sink) + '/' + os.path.splitext(os.path.basename(args.sink))[0] + '-rot90' + os.path.splitext(os.path.basename(args.sink))[1]
 sinkrot180=os.path.dirname(args.sink) + '/' + os.path.splitext(os.path.basename(args.sink))[0] + '-rot180' + os.path.splitext(os.path.basename(args.sink))[1]
 sinkrot270=os.path.dirname(args.sink) + '/' + os.path.splitext(os.path.basename(args.sink))[0] + '-rot270' + os.path.splitext(os.path.basename(args.sink))[1]
 if os.path.isfile(sinkrot90) is True:
   print(f"[INFO] Additional ROT90 file found: {sinkrot90}")
+  sinkrot90img = cv.imread(cv.samples.findFile(sinkrot90), cv.IMREAD_GRAYSCALE)
+  sinkrot90_w, sinkrot90_h = sinkrot90img.shape[::-1]
 if os.path.isfile(sinkrot180) is True:
   print(f"[INFO] Additional ROT180 file found: {sinkrot180}")
 if os.path.isfile(sinkrot270) is True:
   print(f"[INFO] Additional ROT270 file found: {sinkrot270}")
- 
-res = cv.matchTemplate(floorplan_gray,sink,cv.TM_CCOEFF_NORMED)
-threshold = 0.8
-loc = np.where( res >= threshold)
-for pt in zip(*loc[::-1]):
-  cv.rectangle(floorplan_rgb, pt, (pt[0] + sink_w, pt[1] + sink_h), (0,0,255), 2)
 
 print(f"[INFO] Load shower from file {args.shower}")
 shower = cv.imread(cv.samples.findFile(args.shower), cv.IMREAD_GRAYSCALE)
@@ -67,6 +78,12 @@ if shower is None:
   print(f"[ERROR] Could not open or find the template shower image {args.shower}")
   exit(0)
 shower_w, shower_h = shower.shape[::-1]
+ 
+res = cv.matchTemplate(floorplan_gray,shower,cv.TM_CCOEFF_NORMED)
+threshold = 0.8
+loc = np.where( res >= threshold)
+for pt in zip(*loc[::-1]):
+  cv.rectangle(floorplan_rgb, pt, (pt[0] + shower_w, pt[1] + shower_h), (255,0,0), 2)
 
 showerrot90=os.path.dirname(args.shower) + '/' + os.path.splitext(os.path.basename(args.shower))[0] + '-rot90' + os.path.splitext(os.path.basename(args.shower))[1]
 showerrot180=os.path.dirname(args.shower) + '/' + os.path.splitext(os.path.basename(args.shower))[0] + '-rot180' + os.path.splitext(os.path.basename(args.shower))[1]
@@ -77,12 +94,6 @@ if os.path.isfile(showerrot180) is True:
   print(f"[INFO] Additional ROT180 file found: {showerrot180}")
 if os.path.isfile(showerrot270) is True:
   print(f"[INFO] Additional ROT270 file found: {showerrot270}")
- 
-res = cv.matchTemplate(floorplan_gray,shower,cv.TM_CCOEFF_NORMED)
-threshold = 0.8
-loc = np.where( res >= threshold)
-for pt in zip(*loc[::-1]):
-  cv.rectangle(floorplan_rgb, pt, (pt[0] + shower_w, pt[1] + shower_h), (255,0,0), 2)
 
 print(f"[INFO] Load bathtub from file {args.bathtub}")
 bathtub = cv.imread(cv.samples.findFile(args.bathtub), cv.IMREAD_GRAYSCALE)
@@ -96,6 +107,16 @@ threshold = 0.8
 loc = np.where( res >= threshold)
 for pt in zip(*loc[::-1]):
   cv.rectangle(floorplan_rgb, pt, (pt[0] + bathtub_w, pt[1] + bathtub_h), (0,255,0), 2)
+
+bathtubrot90=os.path.dirname(args.bathtub) + '/' + os.path.splitext(os.path.basename(args.bathtub))[0] + '-rot90' + os.path.splitext(os.path.basename(args.bathtub))[1]
+bathtubrot180=os.path.dirname(args.bathtub) + '/' + os.path.splitext(os.path.basename(args.bathtub))[0] + '-rot180' + os.path.splitext(os.path.basename(args.bathtub))[1]
+bathtubrot270=os.path.dirname(args.bathtub) + '/' + os.path.splitext(os.path.basename(args.bathtub))[0] + '-rot270' + os.path.splitext(os.path.basename(args.bathtub))[1]
+if os.path.isfile(bathtubrot90) is True:
+  print(f"[INFO] Additional ROT90 file found: {bathtubrot90}")
+if os.path.isfile(bathtubrot180) is True:
+  print(f"[INFO] Additional ROT180 file found: {bathtubrot180}")
+if os.path.isfile(bathtubrot270) is True:
+  print(f"[INFO] Additional ROT270 file found: {bathtubrot270}")
  
 print("[INFO] Writing result file template_matching004-generic_output.png")
 cv.imwrite('template_matching004-generic_output.png',floorplan_rgb)
