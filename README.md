@@ -1,6 +1,14 @@
 # BathFinder
 Locate bathrooms on floorplans using computer vision and whatever works.
 
+## Latest sample output
+
+![template_matching004-generic_output.png](./template_matching004-generic_output.png)
+
+- Sinks are outlined in red
+- Showers are outlined in blue
+- Bathtubs are outlined in green
+
 ## Description
 
 - Perform automated floorplan analysis
