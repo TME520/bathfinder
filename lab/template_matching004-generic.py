@@ -1,3 +1,5 @@
+# This version looks for sinks, showers and bathtubs.
+
 try:
   import argparse
 except ImportError:
