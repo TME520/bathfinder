@@ -159,6 +159,34 @@ if os.path.isfile(toiletrot270) is True:
   toiletrot270img = cv.imread(cv.samples.findFile(toiletrot270), cv.IMREAD_GRAYSCALE)
   toiletrot270_w, toiletrot270_h = toiletrot270img.shape[::-1]
   spotanddraw(floorplan_rgb, floorplan_gray, toiletrot270img, toiletrot270_w, toiletrot270_h, 100, 0, 0)
+
+print(f"[INFO] Load door from file {args.door}")
+door = cv.imread(cv.samples.findFile(args.door), cv.IMREAD_GRAYSCALE)
+if door is None:
+  print(f"[ERROR] Could not open or find the template door image {args.door}")
+  exit(0)
+door_w, door_h = door.shape[::-1]
+
+spotanddraw(floorplan_rgb, floorplan_gray, door, door_w, door_h, 0, 100, 0)
+
+doorrot90=os.path.dirname(args.door) + '/' + os.path.splitext(os.path.basename(args.door))[0] + '-rot90' + os.path.splitext(os.path.basename(args.door))[1]
+doorrot180=os.path.dirname(args.door) + '/' + os.path.splitext(os.path.basename(args.door))[0] + '-rot180' + os.path.splitext(os.path.basename(args.door))[1]
+doorrot270=os.path.dirname(args.door) + '/' + os.path.splitext(os.path.basename(args.door))[0] + '-rot270' + os.path.splitext(os.path.basename(args.door))[1]
+if os.path.isfile(doorrot90) is True:
+  print(f"[INFO] Additional ROT90 file found: {doorrot90}")
+  doorrot90img = cv.imread(cv.samples.findFile(doorrot90), cv.IMREAD_GRAYSCALE)
+  doorrot90_w, doorrot90_h = doorrot90img.shape[::-1]
+  spotanddraw(floorplan_rgb, floorplan_gray, doorrot90img, doorrot90_w, doorrot90_h, 0, 100, 0)
+if os.path.isfile(doorrot180) is True:
+  print(f"[INFO] Additional ROT180 file found: {doorrot180}")
+  doorrot180img = cv.imread(cv.samples.findFile(doorrot180), cv.IMREAD_GRAYSCALE)
+  doorrot180_w, doorrot180_h = doorrot180img.shape[::-1]
+  spotanddraw(floorplan_rgb, floorplan_gray, doorrot180img, doorrot180_w, doorrot180_h, 0, 100, 0)
+if os.path.isfile(doorrot270) is True:
+  print(f"[INFO] Additional ROT270 file found: {doorrot270}")
+  doorrot270img = cv.imread(cv.samples.findFile(doorrot270), cv.IMREAD_GRAYSCALE)
+  doorrot270_w, doorrot270_h = doorrot270img.shape[::-1]
+  spotanddraw(floorplan_rgb, floorplan_gray, doorrot270img, doorrot270_w, doorrot270_h, 0, 100, 0)
  
 print("[INFO] Writing result file template_matching004-generic_output.png")
 cv.imwrite('template_matching006-generic_output.png',floorplan_rgb)
