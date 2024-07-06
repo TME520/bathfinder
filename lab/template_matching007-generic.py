@@ -30,14 +30,25 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
   return ''.join(random.choice(chars) for _ in range(size))
 
 def spotanddraw(floorplan_pic_rgb, floorplan_pic_gray, template_pic, template_w, template_h, border_color_r, border_color_g, border_color_b, item_type):
+  # print('')
+  # print(f'[DEBUG] spotanddraw()')
   res = cv.matchTemplate(floorplan_pic_gray,template_pic,cv.TM_CCOEFF_NORMED)
   threshold = 0.8
-  loc = np.where( res >= threshold)
-  for pt in zip(*loc[::-1]):
-    cv.rectangle(floorplan_pic_rgb, pt, (pt[0] + template_w, pt[1] + template_h), (border_color_r,border_color_g,border_color_b), 2)
-    rndid=id_generator()
-    print(f'[INFO] New {item_type} ({rndid}) located {pt}')
-    cv.putText(floorplan_pic_rgb, rndid, pt, cv.FONT_HERSHEY_PLAIN, 1, (0,0,0), 1, cv.LINE_AA)
+  loc = np.where(res >= threshold)
+  if (len(loc[1]) > 0):
+    # print(f'[DEBUG] loc[0]: {loc[0]}')
+    # print(f'[DEBUG] loc[1]: {loc[1]}')
+    minx = 0
+    maxdrift = template_h
+    for pt in zip(*loc[::-1]):
+      # print(f'[DEBUG] minx: {minx}')
+      # print(f'[DEBUG] pt[0]: {pt[0]} - pt[1]: {pt[1]}')
+      if ((minx == 0) or (pt[1] > minx + maxdrift) or  (pt[1] < minx - maxdrift)):
+        cv.rectangle(floorplan_pic_rgb, pt, (pt[0] + template_w, pt[1] + template_h), (border_color_r,border_color_g,border_color_b), 2)
+        rndid=id_generator()
+        print(f'[INFO] New {item_type} ({rndid}) located {pt}')
+        cv.putText(floorplan_pic_rgb, rndid, (pt[0] + 5, pt[1] - 3), cv.FONT_HERSHEY_PLAIN, 1, (border_color_r,border_color_g,border_color_b), 1, cv.LINE_AA)
+        minx = pt[1]
  
 parser = argparse.ArgumentParser(description='Look for items and furniture on a floorplan')
 parser.add_argument('--floorplan', help='Path to input floorplan image.', default='floorplan.png')

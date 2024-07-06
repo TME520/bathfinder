@@ -3,7 +3,7 @@ Locate bathrooms on floorplans using computer vision and whatever works.
 
 ## Latest sample output
 
-![template_matching006-generic_output.png](./template_matching006-generic_output.png)
+![template_matching007-generic_output.png](./template_matching007-generic_output.png)
 
 - Sinks are outlined in red
 - Showers are outlined in blue
@@ -11,7 +11,7 @@ Locate bathrooms on floorplans using computer vision and whatever works.
 - Doors are outline in dark green
 - Toilets are outlined in dark blue
 
-Generated using: `$ python3 ./lab/template_matching006-generic.py --floorplan=./assets/archive/floorplan001.jpg --sink=./assets/sinks/floorplan001-sink01.png --shower=./assets/showers/floorplan001-shower01.png --bathtub=./assets/bathtubs/floorplan001-bathtub01.png --toilet=./assets/toilets/floorplan001-toilet01.png --door=./assets/doors/floorplan001-door01.png`
+Generated using: `$ python3 ./lab/template_matching007-generic.py --floorplan=./assets/archive/floorplan001.jpg --sink=./assets/sinks/floorplan001-sink01.png --shower=./assets/showers/floorplan001-shower01.png --bathtub=./assets/bathtubs/floorplan001-bathtub01.png --toilet=./assets/toilets/floorplan001-toilet01.png --door=./assets/doors/floorplan001-door01.png`
 
 ## Description
 
