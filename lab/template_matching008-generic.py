@@ -28,6 +28,11 @@ except ImportError:
 
 detected_items = {}
 
+def writeToFile(filename, mode, content):
+  target_file = open(filename, mode)
+  target_file.write(content)
+  target_file.close()
+
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
   return ''.join(random.choice(chars) for _ in range(size))
 
@@ -210,7 +215,11 @@ if os.path.isfile(doorrot270) is True:
 print('[INFO] Writing result file template_matching004-generic_output.png')
 cv.imwrite('template_matching008-generic_output.png',floorplan_rgb)
 
-print(f"[DEBUG] Detected items:\n {detected_items}")
+# print(f"[DEBUG] Detected items:\n {detected_items}")
+writeToFile('template_matching008-generic_output.csv', 'w', 'id,type,x,y\n')
+for current_item in detected_items:
+  print(f"[DEBUG] Reference: {current_item} - Type: {detected_items[current_item]['type']} - X: {detected_items[current_item]['x']} - Y: {detected_items[current_item]['y']}")
+  writeToFile('template_matching008-generic_output.csv', 'a', f'{current_item},{detected_items[current_item]["type"]},{detected_items[current_item]["x"]},{detected_items[current_item]["y"]}\n')
 
 print('[INFO] Done, exiting.')
 exit(0)
