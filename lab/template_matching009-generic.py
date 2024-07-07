@@ -123,15 +123,17 @@ for (dir_path, dir_names, file_names) in os.walk(toilets_folder):
     toilets_templates_list.extend(file_names)
 print(toilets_templates_list)
 
+for current_floorplan in input_floorplans_list:
+  print(f'[INFO] Load floorplan from file {floorplans_folder}{current_floorplan}')
+  floorplan_rgb = cv.imread(cv.samples.findFile(f'{floorplans_folder}{current_floorplan}'))
+  if floorplan_rgb is None:
+    print(f'[ERROR] Floorplan image {floorplans_folder}{current_floorplan} not found or unsupported')
+  else:
+    floorplan_gray = cv.cvtColor(floorplan_rgb, cv.COLOR_BGR2GRAY)
+    for current_sink in sinks_templates_list:
+      print(f'[INFO] Checking sink template {current_sink}')
+
 exit(0)
-
-print(f'[INFO] Load floorplan from file {floorplans_folder}{floorplan_name}')
-floorplan_rgb = cv.imread(cv.samples.findFile(f'{floorplans_folder}{floorplan_name}'))
-if floorplan_rgb is None:
-  print(f'[ERROR] Could not open or find the floorplan image {floorplans_folder}{floorplan_name}')
-  exit(0)
-
-floorplan_gray = cv.cvtColor(floorplan_rgb, cv.COLOR_BGR2GRAY)
 
 print(f'[INFO] Load sink from file {args.sink}')
 sink = cv.imread(cv.samples.findFile(args.sink), cv.IMREAD_GRAYSCALE)
