@@ -131,17 +131,21 @@ for current_floorplan in input_floorplans_list:
   else:
     floorplan_gray = cv.cvtColor(floorplan_rgb, cv.COLOR_BGR2GRAY)
     for current_sink in sinks_templates_list:
-      print(f'[INFO] Checking sink template {current_sink}')
+      print(f'[INFO] Checking sink template {sinks_folder}{current_sink}')
+      sink = cv.imread(cv.samples.findFile(f'{sinks_folder}{current_sink}'), cv.IMREAD_GRAYSCALE)
+      if sink is None:
+        print(f'[ERROR] Sink template image {sinks_folder}{current_sink} not found or unsupported')
+      else:
+        sink_w, sink_h = sink.shape[::-1]
+        spotanddraw(floorplan_rgb, floorplan_gray, sink, sink_w, sink_h, 0, 0, 255, 'sink')
 
 exit(0)
 
-print(f'[INFO] Load sink from file {args.sink}')
 sink = cv.imread(cv.samples.findFile(args.sink), cv.IMREAD_GRAYSCALE)
 if sink is None:
   print(f'[ERROR] Could not open or find the template sink image {args.sink}')
   exit(0)
 sink_w, sink_h = sink.shape[::-1]
-
 spotanddraw(floorplan_rgb, floorplan_gray, sink, sink_w, sink_h, 0, 0, 255, 'sink')
 
 sinkrot90=os.path.dirname(args.sink) + '/' + os.path.splitext(os.path.basename(args.sink))[0] + '-rot90' + os.path.splitext(os.path.basename(args.sink))[1]
