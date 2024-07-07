@@ -8,11 +8,6 @@ import string
 import random
 
 try:
-  import argparse
-except ImportError:
-  print('Cannot import argparse module\nTry: pip3 install argparse')
-
-try:
   import cv2 as cv
 except ImportError:
   print('Cannot import cv2 computer vision PIP module\nTry: pip3 install opencv-python')
@@ -55,37 +50,61 @@ def spotanddraw(floorplan_pic_rgb, floorplan_pic_gray, template_pic, template_w,
         cv.putText(floorplan_pic_rgb, rndid, (pt[0] + 5, pt[1] - 3), cv.FONT_HERSHEY_PLAIN, 1, (border_color_r,border_color_g,border_color_b), 1, cv.LINE_AA)
         detected_items[rndid] = { 'type':item_type, 'x':pt[1], 'y':pt[0] }
         minx = pt[1]
- 
-parser = argparse.ArgumentParser(description='Look for items and furniture on a floorplan')
-parser.add_argument('--floorplan', help='Path to input floorplan image.', default='floorplan.png')
-parser.add_argument('--sink', help='Path to input sink image.', default='sink.png')
-parser.add_argument('--shower', help='Path to input shower image.', default='shower.png')
-parser.add_argument('--bathtub', help='Path to input bathtub image.', default='bathtub.png')
-parser.add_argument('--toilet', help='Path to input toilet image.', default='toilet.png')
-parser.add_argument('--door', help='Path to input door image.', default='dor.png')
-args = parser.parse_args()
 
-floorplan_name = os.path.splitext(os.path.basename(args.floorplan))[0]
-print(f'[DEBUG] Floorplan name: {floorplan_name}')
+input_folder = './input/'
+output_folder = './output/'
+floorplans_folder = f'{input_folder}floorplans/'
+bathtubs_folder = f'{input_folder}bathtubs/'
+doors_folder = f'{input_folder}doors/'
+showers_folder = f'{input_folder}showers/'
+sinks_folder = f'{input_folder}sinks/'
+toilets_folder = f'{input_folder}toilets/'
 
-if (os.path.isdir(f'./output/{floorplan_name}')):
-  print(f'[DEBUG] Outputs folder ./output/{floorplan_name} exists')
+if (os.path.isdir(f'{input_folder}')):
+  print(f'[DEBUG] {input_folder} folder found')
 else:
-  print(f'[DEBUG] Creating outputs folders ./output/{floorplan_name}/.../')
-  os.mkdir(f'./output/')
-  os.mkdir(f'./output/{floorplan_name}/')
-  os.mkdir(f'./output/{floorplan_name}/csv/')
-  output_csv = f'./output/{floorplan_name}/csv/'
-  os.mkdir(f'./output/{floorplan_name}/image/')
-  output_image = f'./output/{floorplan_name}/image/'
-  os.mkdir(f'./output/{floorplan_name}/log/')
-  output_log = f'./output/{floorplan_name}/log/'
-  print(f'[DEBUG] output_csv: {output_csv} - output_image: {output_image} - output_log: {output_log}')
+  print(f'[DEBUG] Creating {input_folder} folder...') 
+  os.mkdir(f'{input_folder}')
+  print(f'[INFO] ...done. Now place your input files in {input_folder} and restart this program.')
+  print(f'{input_folder} must contain the following folders: floorplans, bathtubs, doors, showers, sinks, toilets')
+  exit(0)
 
-print(f'[INFO] Load floorplan from file {args.floorplan}')
-floorplan_rgb = cv.imread(cv.samples.findFile(args.floorplan))
+if (os.path.isdir(f'{output_folder}')):
+  print(f'[DEBUG] {output_folder} folder found')
+else:
+  print(f'[DEBUG] Creating {output_folder} folder')
+  os.mkdir(f'{output_folder}')
+
+if (os.path.isdir(f'{floorplans_folder}')):
+  print(f'[DEBUG] Folder {floorplans_folder} exists')
+else:
+  print(f'[DEBUG] Creating output folders {floorplans_folder}/.../')
+  os.mkdir(f'{floorplans_folder}')
+  output_csv = f'{output_folder}{floorplan_name}/csv/'
+  os.mkdir(f'{output_csv}')
+  output_image = f'{output_folder}{floorplan_name}/image/'
+  os.mkdir(f'{output_image}')
+  output_log = f'{output_folder}{floorplan_name}/log/'
+  os.mkdir(f'{output_log}')
+
+print('[DEBUG] Listing input floorplan files')
+input_floorplans_list = []
+for (dir_path, dir_names, file_names) in os.walk(floorplans_folder):
+    input_floorplans_list.extend(file_names)
+print(input_floorplans_list)
+
+print('[DEBUG] Listing bathtubs templates')
+bathtubs_templates_list = []
+for (dir_path, dir_names, file_names) in os.walk(bathtubs_folder):
+    bathtubs_templates_list.extend(file_names)
+print(bathtubs_templates_list)
+
+exit(0)
+
+print(f'[INFO] Load floorplan from file {floorplans_folder}{floorplan_name}')
+floorplan_rgb = cv.imread(cv.samples.findFile(f'{floorplans_folder}{floorplan_name}'))
 if floorplan_rgb is None:
-  print(f'[ERROR] Could not open or find the floorplan image {args.floorplan}')
+  print(f'[ERROR] Could not open or find the floorplan image {floorplans_folder}{floorplan_name}')
   exit(0)
 
 floorplan_gray = cv.cvtColor(floorplan_rgb, cv.COLOR_BGR2GRAY)
