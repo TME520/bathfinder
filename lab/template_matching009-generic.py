@@ -99,6 +99,30 @@ for (dir_path, dir_names, file_names) in os.walk(bathtubs_folder):
     bathtubs_templates_list.extend(file_names)
 print(bathtubs_templates_list)
 
+print('[DEBUG] Listing doors templates')
+doors_templates_list = []
+for (dir_path, dir_names, file_names) in os.walk(doors_folder):
+    doors_templates_list.extend(file_names)
+print(doors_templates_list)
+
+print('[DEBUG] Listing showers templates')
+showers_templates_list = []
+for (dir_path, dir_names, file_names) in os.walk(showers_folder):
+    showers_templates_list.extend(file_names)
+print(showers_templates_list)
+
+print('[DEBUG] Listing sinks templates')
+sinks_templates_list = []
+for (dir_path, dir_names, file_names) in os.walk(sinks_folder):
+    sinks_templates_list.extend(file_names)
+print(sinks_templates_list)
+
+print('[DEBUG] Listing toilets templates')
+toilets_templates_list = []
+for (dir_path, dir_names, file_names) in os.walk(toilets_folder):
+    toilets_templates_list.extend(file_names)
+print(toilets_templates_list)
+
 exit(0)
 
 print(f'[INFO] Load floorplan from file {floorplans_folder}{floorplan_name}')
