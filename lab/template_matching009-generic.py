@@ -74,17 +74,11 @@ if (os.path.isdir(f'{output_folder}')):
 else:
   print(f'[DEBUG] Creating {output_folder} folder')
   os.mkdir(f'{output_folder}')
-
-if (os.path.isdir(f'{floorplans_folder}')):
-  print(f'[DEBUG] Folder {floorplans_folder} exists')
-else:
-  print(f'[DEBUG] Creating output folders {floorplans_folder}/.../')
-  os.mkdir(f'{floorplans_folder}')
-  output_csv = f'{output_folder}{floorplan_name}/csv/'
+  output_csv = f'{output_folder}/csv/'
   os.mkdir(f'{output_csv}')
-  output_image = f'{output_folder}{floorplan_name}/image/'
+  output_image = f'{output_folder}/image/'
   os.mkdir(f'{output_image}')
-  output_log = f'{output_folder}{floorplan_name}/log/'
+  output_log = f'{output_folder}/log/'
   os.mkdir(f'{output_log}')
 
 print('[DEBUG] Listing input floorplan files')
@@ -133,117 +127,56 @@ for current_floorplan in input_floorplans_list:
     floorplan_gray = cv.cvtColor(floorplan_rgb, cv.COLOR_BGR2GRAY)
     # Compare sinks against current floorplan one by one
     for current_sink in sinks_templates_list:
-      print(f'[INFO] Checking sink template {sinks_folder}{current_sink}')
+      print(f'  [INFO] Checking sink template {sinks_folder}{current_sink}')
       sink = cv.imread(cv.samples.findFile(f'{sinks_folder}{current_sink}'), cv.IMREAD_GRAYSCALE)
       if sink is None:
-        print(f'[ERROR] Sink template image {sinks_folder}{current_sink} not found or unsupported')
+        print(f'  [ERROR] Sink template image {sinks_folder}{current_sink} not found or unsupported')
       else:
         sink_w, sink_h = sink.shape[::-1]
         spotanddraw(floorplan_rgb, floorplan_gray, sink, sink_w, sink_h, 0, 0, 255, 'sink')
     # Compare showers against current floorplan one by one
     for current_shower in showers_templates_list:
-      print(f'[INFO] Checking shower template {showers_folder}{current_shower}')
+      print(f'  [INFO] Checking shower template {showers_folder}{current_shower}')
       shower = cv.imread(cv.samples.findFile(f'{showers_folder}{current_shower}'), cv.IMREAD_GRAYSCALE)
       if shower is None:
-        print(f'[ERROR] Shower template image {showers_folder}{current_shower} not found or unsupported')
+        print(f'  [ERROR] Shower template image {showers_folder}{current_shower} not found or unsupported')
       else:
         shower_w, shower_h = shower.shape[::-1]
         spotanddraw(floorplan_rgb, floorplan_gray, shower, shower_w, shower_h, 255, 0, 0, 'shower')
-
-exit(0)
-
-print(f'[INFO] Load bathtub from file {args.bathtub}')
-bathtub = cv.imread(cv.samples.findFile(args.bathtub), cv.IMREAD_GRAYSCALE)
-if bathtub is None:
-  print(f'[ERROR] Could not open or find the template bathtub image {args.bathtub}')
-  exit(0)
-bathtub_w, bathtub_h = bathtub.shape[::-1]
- 
-spotanddraw(floorplan_rgb, floorplan_gray, bathtub, bathtub_w, bathtub_h, 0, 255, 0, 'bathtub')
-
-bathtubrot90=os.path.dirname(args.bathtub) + '/' + os.path.splitext(os.path.basename(args.bathtub))[0] + '-rot90' + os.path.splitext(os.path.basename(args.bathtub))[1]
-bathtubrot180=os.path.dirname(args.bathtub) + '/' + os.path.splitext(os.path.basename(args.bathtub))[0] + '-rot180' + os.path.splitext(os.path.basename(args.bathtub))[1]
-bathtubrot270=os.path.dirname(args.bathtub) + '/' + os.path.splitext(os.path.basename(args.bathtub))[0] + '-rot270' + os.path.splitext(os.path.basename(args.bathtub))[1]
-if os.path.isfile(bathtubrot90) is True:
-  print(f'[INFO] Additional ROT90 file found: {bathtubrot90}')
-  bathtubrot90img = cv.imread(cv.samples.findFile(bathtubrot90), cv.IMREAD_GRAYSCALE)
-  bathtubrot90_w, bathtubrot90_h = bathtubrot90img.shape[::-1]
-  spotanddraw(floorplan_rgb, floorplan_gray, bathtubrot90img, bathtubrot90_w, bathtubrot90_h, 0, 255, 0, 'bathtub')
-if os.path.isfile(bathtubrot180) is True:
-  print(f'[INFO] Additional ROT180 file found: {bathtubrot180}')
-  bathtubrot180img = cv.imread(cv.samples.findFile(bathtubrot180), cv.IMREAD_GRAYSCALE)
-  bathtubrot180_w, bathtubrot180_h = bathtubrot180img.shape[::-1]
-  spotanddraw(floorplan_rgb, floorplan_gray, bathtubrot180img, bathtubrot180_w, bathtubrot180_h, 0, 255, 0, 'bathtub')
-if os.path.isfile(bathtubrot270) is True:
-  print(f'[INFO] Additional ROT270 file found: {bathtubrot270}')
-  bathtubrot270img = cv.imread(cv.samples.findFile(bathtubrot270), cv.IMREAD_GRAYSCALE)
-  bathtubrot270_w, bathtubrot270_h = bathtubrot270img.shape[::-1]
-  spotanddraw(floorplan_rgb, floorplan_gray, bathtubrot270img, bathtubrot270_w, bathtubrot270_h, 0, 255, 0, 'bathtub')
-
-print(f'[INFO] Load toilet from file {args.toilet}')
-toilet = cv.imread(cv.samples.findFile(args.toilet), cv.IMREAD_GRAYSCALE)
-if toilet is None:
-  print(f'[ERROR] Could not open or find the template toilet image {args.toilet}')
-  exit(0)
-toilet_w, toilet_h = toilet.shape[::-1]
-
-spotanddraw(floorplan_rgb, floorplan_gray, toilet, toilet_w, toilet_h, 100, 0, 0, 'toilet')
-
-toiletrot90=os.path.dirname(args.toilet) + '/' + os.path.splitext(os.path.basename(args.toilet))[0] + '-rot90' + os.path.splitext(os.path.basename(args.toilet))[1]
-toiletrot180=os.path.dirname(args.toilet) + '/' + os.path.splitext(os.path.basename(args.toilet))[0] + '-rot180' + os.path.splitext(os.path.basename(args.toilet))[1]
-toiletrot270=os.path.dirname(args.toilet) + '/' + os.path.splitext(os.path.basename(args.toilet))[0] + '-rot270' + os.path.splitext(os.path.basename(args.toilet))[1]
-if os.path.isfile(toiletrot90) is True:
-  print(f'[INFO] Additional ROT90 file found: {toiletrot90}')
-  toiletrot90img = cv.imread(cv.samples.findFile(toiletrot90), cv.IMREAD_GRAYSCALE)
-  toiletrot90_w, toiletrot90_h = toiletrot90img.shape[::-1]
-  spotanddraw(floorplan_rgb, floorplan_gray, toiletrot90img, toiletrot90_w, toiletrot90_h, 100, 0, 0, 'toilet')
-if os.path.isfile(toiletrot180) is True:
-  print(f'[INFO] Additional ROT180 file found: {toiletrot180}')
-  toiletrot180img = cv.imread(cv.samples.findFile(toiletrot180), cv.IMREAD_GRAYSCALE)
-  toiletrot180_w, toiletrot180_h = toiletrot180img.shape[::-1]
-  spotanddraw(floorplan_rgb, floorplan_gray, toiletrot180img, toiletrot180_w, toiletrot180_h, 100, 0, 0, 'toilet')
-if os.path.isfile(toiletrot270) is True:
-  print(f'[INFO] Additional ROT270 file found: {toiletrot270}')
-  toiletrot270img = cv.imread(cv.samples.findFile(toiletrot270), cv.IMREAD_GRAYSCALE)
-  toiletrot270_w, toiletrot270_h = toiletrot270img.shape[::-1]
-  spotanddraw(floorplan_rgb, floorplan_gray, toiletrot270img, toiletrot270_w, toiletrot270_h, 100, 0, 0, 'toilet')
-
-print(f'[INFO] Load door from file {args.door}')
-door = cv.imread(cv.samples.findFile(args.door), cv.IMREAD_GRAYSCALE)
-if door is None:
-  print(f'[ERROR] Could not open or find the template door image {args.door}')
-  exit(0)
-door_w, door_h = door.shape[::-1]
-
-spotanddraw(floorplan_rgb, floorplan_gray, door, door_w, door_h, 0, 100, 0, 'door')
-
-doorrot90=os.path.dirname(args.door) + '/' + os.path.splitext(os.path.basename(args.door))[0] + '-rot90' + os.path.splitext(os.path.basename(args.door))[1]
-doorrot180=os.path.dirname(args.door) + '/' + os.path.splitext(os.path.basename(args.door))[0] + '-rot180' + os.path.splitext(os.path.basename(args.door))[1]
-doorrot270=os.path.dirname(args.door) + '/' + os.path.splitext(os.path.basename(args.door))[0] + '-rot270' + os.path.splitext(os.path.basename(args.door))[1]
-if os.path.isfile(doorrot90) is True:
-  print(f'[INFO] Additional ROT90 file found: {doorrot90}')
-  doorrot90img = cv.imread(cv.samples.findFile(doorrot90), cv.IMREAD_GRAYSCALE)
-  doorrot90_w, doorrot90_h = doorrot90img.shape[::-1]
-  spotanddraw(floorplan_rgb, floorplan_gray, doorrot90img, doorrot90_w, doorrot90_h, 0, 100, 0, 'door')
-if os.path.isfile(doorrot180) is True:
-  print(f'[INFO] Additional ROT180 file found: {doorrot180}')
-  doorrot180img = cv.imread(cv.samples.findFile(doorrot180), cv.IMREAD_GRAYSCALE)
-  doorrot180_w, doorrot180_h = doorrot180img.shape[::-1]
-  spotanddraw(floorplan_rgb, floorplan_gray, doorrot180img, doorrot180_w, doorrot180_h, 0, 100, 0, 'door')
-if os.path.isfile(doorrot270) is True:
-  print(f'[INFO] Additional ROT270 file found: {doorrot270}')
-  doorrot270img = cv.imread(cv.samples.findFile(doorrot270), cv.IMREAD_GRAYSCALE)
-  doorrot270_w, doorrot270_h = doorrot270img.shape[::-1]
-  spotanddraw(floorplan_rgb, floorplan_gray, doorrot270img, doorrot270_w, doorrot270_h, 0, 100, 0, 'door')
- 
-print('[INFO] Writing result file template_matching004-generic_output.png')
-cv.imwrite(f'{output_image}{floorplan_name}-detected_items.png',floorplan_rgb)
-
-# print(f"[DEBUG] Detected items:\n {detected_items}")
-writeToFile(f'{output_csv}{floorplan_name}-detected_items.csv', 'w', 'id,type,x,y\n')
-for current_item in detected_items:
-  print(f"[DEBUG] Reference: {current_item} - Type: {detected_items[current_item]['type']} - X: {detected_items[current_item]['x']} - Y: {detected_items[current_item]['y']}")
-  writeToFile(f'{output_csv}{floorplan_name}-detected_items.csv', 'a', f'{current_item},{detected_items[current_item]["type"]},{detected_items[current_item]["x"]},{detected_items[current_item]["y"]}\n')
+    # Compare bathtubs against current floorplan one by one
+    for current_bathtub in bathtubs_templates_list:
+      print(f'  [INFO] Checking bathtub template {bathtubs_folder}{current_bathtub}')
+      bathtub = cv.imread(cv.samples.findFile(f'{bathtubs_folder}{current_bathtub}'), cv.IMREAD_GRAYSCALE)
+      if bathtub is None:
+        print(f'  [ERROR] Bathtub template image {bathtubs_folder}{current_bathtub} not found or unsupported')
+      else:
+        bathtub_w, bathtub_h = bathtub.shape[::-1]
+        spotanddraw(floorplan_rgb, floorplan_gray, bathtub, bathtub_w, bathtub_h, 0, 255, 0, 'bathtub')
+    # Compare toilets against current floorplan one by one
+    for current_toilet in toilets_templates_list:
+      print(f'  [INFO] Checking toilet template {toilets_folder}{current_toilet}')
+      toilet = cv.imread(cv.samples.findFile(f'{toilets_folder}{current_toilet}'), cv.IMREAD_GRAYSCALE)
+      if toilet is None:
+        print(f'  [ERROR] Toilet template image {toilets_folder}{current_toilet} not found or unsupported')
+      else:
+        toilet_w, toilet_h = toilet.shape[::-1]
+        spotanddraw(floorplan_rgb, floorplan_gray, toilet, toilet_w, toilet_h, 100, 0, 0, 'toilet')
+    # Compare doors against current floorplan one by one
+    for current_door in doors_templates_list:
+      print(f'  [INFO] Checking door template {doors_folder}{current_door}')
+      door = cv.imread(cv.samples.findFile(f'{doors_folder}{current_door}'), cv.IMREAD_GRAYSCALE)
+      if door is None:
+        print(f'  [ERROR] Door template image {doors_folder}{current_door} not found or unsupported')
+      else:
+        door_w, door_h = door.shape[::-1]
+        spotanddraw(floorplan_rgb, floorplan_gray, door, door_w, door_h, 0, 100, 0, 'door')
+    print(f'  [INFO] Writing result file {output_image}{current_floorplan}-detected_items.png')
+    cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
+    print(f'  [INFO] Listing found items in CSV file {output_csv}{current_floorplan}-detected_items.csv')
+    writeToFile(f'{output_csv}{current_floorplan}-detected_items.csv', 'w', 'id,type,x,y\n')
+    for current_item in detected_items:
+      print(f"  [DEBUG] Reference: {current_item} - Type: {detected_items[current_item]['type']} - X: {detected_items[current_item]['x']} - Y: {detected_items[current_item]['y']}")
+      writeToFile(f'{output_csv}{current_floorplan}-detected_items.csv', 'a', f'{current_item},{detected_items[current_item]["type"]},{detected_items[current_item]["x"]},{detected_items[current_item]["y"]}\n')
 
 print('[INFO] Done, exiting.')
 exit(0)
