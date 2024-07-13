@@ -81,6 +81,8 @@ else:
   output_log = f'{output_folder}/log/'
   os.mkdir(f'{output_log}')
 
+writeToFile(f'{output_log}bathfinder.log', 'w', '[INFO] New run\n')
+
 print('[DEBUG] Listing input floorplan files')
 input_floorplans_list = []
 for (dir_path, dir_names, file_names) in os.walk(floorplans_folder):
@@ -120,6 +122,7 @@ print(toilets_templates_list)
 # Process floorplans one by one
 for current_floorplan in input_floorplans_list:
   print(f'[INFO] Load floorplan from file {floorplans_folder}{current_floorplan}')
+  detected_items = {}
   floorplan_rgb = cv.imread(cv.samples.findFile(f'{floorplans_folder}{current_floorplan}'))
   if floorplan_rgb is None:
     print(f'[ERROR] Floorplan image {floorplans_folder}{current_floorplan} not found or unsupported')
@@ -177,6 +180,7 @@ for current_floorplan in input_floorplans_list:
     for current_item in detected_items:
       print(f"  [DEBUG] Reference: {current_item} - Type: {detected_items[current_item]['type']} - X: {detected_items[current_item]['x']} - Y: {detected_items[current_item]['y']}")
       writeToFile(f'{output_csv}{current_floorplan}-detected_items.csv', 'a', f'{current_item},{detected_items[current_item]["type"]},{detected_items[current_item]["x"]},{detected_items[current_item]["y"]}\n')
+      writeToFile(f'{output_log}bathfinder.log', 'a', f'[INFO] {current_floorplan} Found {detected_items[current_item]["type"]} with reference {current_item} at {detected_items[current_item]["x"]},{detected_items[current_item]["y"]}\n')
 
 print('[INFO] Done, exiting.')
 exit(0)
