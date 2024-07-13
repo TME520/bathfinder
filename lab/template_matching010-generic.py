@@ -24,6 +24,8 @@ except ImportError:
   print('Cannot import pyplot module\nTry: pip3 install matplotlib') 
 
 detected_items = {}
+anti_duplicates = {}
+# print(f'Length anti_duplicates: {len(anti_duplicates)}')
 
 def writeToFile(filename, mode, content):
   target_file = open(filename, mode)
@@ -38,18 +40,27 @@ def spotitems(floorplan_pic_rgb, floorplan_pic_gray, template_pic, template_w, t
   # threshold = 0.8
   threshold = 0.7
   loc = np.where(res >= threshold)
-  if (len(loc[0]) > 0):
-    miny = 0
+  if (len(anti_duplicates)>0):
+    notDuplicate = False
+    writeToFile(f'{output_log}bathfinder.log', 'a', '[DEBUG] Duplicates list not empty\n')
+  else:
+    notDuplicate = True
+    writeToFile(f'{output_log}bathfinder.log', 'a', '[DEBUG] Duplicates list is empty\n')
+  if (len(loc[0]) > 0) and (len(loc[1]) > 0):
     maxdrifty = template_w
-  if (len(loc[1]) > 0):
-    minx = 0
     maxdrifx = template_h
     for pt in zip(*loc[::-1]):
-      if ((minx == 0) or ((pt[1] > minx + maxdrifx) or (pt[1] < minx - maxdrifx)) and ((pt[0] > miny + maxdrifty) or (pt[0] < miny - maxdrifty))):
+      if (len(anti_duplicates)>0):
+        for current_duplicate in anti_duplicates:
+          if (pt[0]<anti_duplicates[current_duplicate]['minus_y']) and (pt[0]>anti_duplicates[current_duplicate]['plus_y']) and (pt[1]<anti_duplicates[current_duplicate]['minus_x']) and (pt[1]>anti_duplicates[current_duplicate]['plus_x']):
+            notDuplicate = True
+      if (notDuplicate == True):
         rndid=id_generator()
         print(f'[INFO] New {item_type} ({rndid}) located {pt}')
+        writeToFile(f'{output_log}bathfinder.log', 'a', f'[INFO] New {item_type} ({rndid}) located {pt} \n')
         detected_items[rndid] = { 'type':item_type, 'x':pt[1], 'y':pt[0], 'height':template_h, 'width':template_w }
-        minx = pt[1]
+        anti_duplicates[rndid] = { 'minus_x':pt[1] - 10, 'minus_y':pt[0] - 10, 'plus_x':pt[1] + 10, 'plus_y':pt[0] + 10 }
+        writeToFile(f'{output_log}bathfinder.log', 'a', f'[DEBUG] New duplicate added to the list: minus_x={pt[1] - 10}, minus_y={pt[0] - 10}, plus_x={pt[1] + 10}, plus_y={pt[0] + 10} \n')
 
 def drawdetecteditems():
   for current_item in detected_items:
@@ -154,6 +165,7 @@ for current_floorplan in input_floorplans_list:
   if floorplan_rgb is None:
     print(f'[ERROR] Floorplan image {floorplans_folder}{current_floorplan} not found or unsupported')
   else:
+    writeToFile(f'{output_log}bathfinder.log', 'a', f'[INFO] Processing floorplan {current_floorplan} \n')
     floorplan_gray = cv.cvtColor(floorplan_rgb, cv.COLOR_BGR2GRAY)
     # Compare sinks against current floorplan one by one
     for current_sink in sinks_templates_list:
