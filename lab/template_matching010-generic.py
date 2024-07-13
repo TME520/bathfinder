@@ -35,7 +35,8 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
 
 def spotitems(floorplan_pic_rgb, floorplan_pic_gray, template_pic, template_w, template_h, item_type):
   res = cv.matchTemplate(floorplan_pic_gray,template_pic,cv.TM_CCOEFF_NORMED)
-  threshold = 0.8
+  # threshold = 0.8
+  threshold = 0.7
   loc = np.where(res >= threshold)
   if (len(loc[0]) > 0):
     miny = 0
