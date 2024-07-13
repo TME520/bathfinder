@@ -25,7 +25,6 @@ except ImportError:
 
 detected_items = {}
 anti_duplicates = {}
-# print(f'Length anti_duplicates: {len(anti_duplicates)}')
 
 def writeToFile(filename, mode, content):
   target_file = open(filename, mode)
@@ -35,36 +34,34 @@ def writeToFile(filename, mode, content):
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
   return ''.join(random.choice(chars) for _ in range(size))
 
-def spotitems(floorplan_pic_rgb, floorplan_pic_gray, template_pic, template_w, template_h, item_type):
+def spotitems(floorplan_pic_rgb, floorplan_pic_gray, template_pic, template_w, template_h, item_type, item_subtype):
   res = cv.matchTemplate(floorplan_pic_gray,template_pic,cv.TM_CCOEFF_NORMED)
   # threshold = 0.8
   threshold = 0.7
   loc = np.where(res >= threshold)
   if (len(anti_duplicates)>0):
     notDuplicate = False
-    # writeToFile(f'{output_log}bathfinder.log', 'a', '[DEBUG] Duplicates list not empty\n')
   else:
     notDuplicate = True
-    # writeToFile(f'{output_log}bathfinder.log', 'a', '[DEBUG] Duplicates list is empty\n')
   if (len(loc[0]) > 0) and (len(loc[1]) > 0):
     maxdrifty = template_w
     maxdrifx = template_h
     for pt in zip(*loc[::-1]):
       if (len(anti_duplicates)>0):
-        # writeToFile(f'{output_log}bathfinder.log', 'a', f'[DEBUG] Testing {item_type} x:{pt[1]}, y:{pt[0]} \n')
         for current_duplicate in anti_duplicates:
           if (((pt[0]<anti_duplicates[current_duplicate]['minus_y']) or (pt[0]>anti_duplicates[current_duplicate]['plus_y'])) or ((pt[1]<anti_duplicates[current_duplicate]['minus_x']) or (pt[1]>anti_duplicates[current_duplicate]['plus_x']))):
              notDuplicate = True
           else:
-            writeToFile(f'{output_log}bathfinder.log', 'a', f'  [DEBUG] Duplicate {current_duplicate} found, not drawing: {item_type} (x:{pt[1]}, y:{pt[0]}) \n')
-            return None
+            writeToFile(f'{output_log}bathfinder.log', 'a', '.')
+            notDuplicate = False
+            break
       if (notDuplicate == True):
         rndid=id_generator()
-        print(f'[INFO] New {item_type} ({rndid}) located {pt} validated, will draw')
-        writeToFile(f'{output_log}bathfinder.log', 'a', f'[INFO] New {item_type} ({rndid}) located {pt}, will draw \n')
+        print(f'[INFO] New {item_type} ({rndid}) located {pt}, will draw')
+        writeToFile(f'{output_log}bathfinder.log', 'a', f'  [INFO] New {item_type} ({rndid}) located {pt}, will draw \n')
         detected_items[rndid] = { 'type':item_type, 'x':pt[1], 'y':pt[0], 'height':template_h, 'width':template_w }
-        anti_duplicates[rndid] = { 'duptype':item_type, 'minus_x':pt[1] - 10, 'minus_y':pt[0] - 10, 'plus_x':pt[1] + 10, 'plus_y':pt[0] + 10 }
-        writeToFile(f'{output_log}bathfinder.log', 'a', f'[DEBUG] New duplicate added to the list: minus_x={pt[1] - 10}, minus_y={pt[0] - 10}, plus_x={pt[1] + 10}, plus_y={pt[0] + 10} \n')
+        anti_duplicates[rndid] = { 'duptype':item_type, 'subtype':item_subtype, 'minus_x':pt[1] - 10, 'minus_y':pt[0] - 10, 'plus_x':pt[1] + 10, 'plus_y':pt[0] + 10 }
+        writeToFile(f'{output_log}bathfinder.log', 'a', f'  [DEBUG] New duplicate added to the list: duptype={item_type}, subtype={item_subtype}, minus_x={pt[1] - 10}, minus_y={pt[0] - 10}, plus_x={pt[1] + 10}, plus_y={pt[0] + 10} \n')
 
 def drawdetecteditems():
   for current_item in detected_items:
@@ -180,7 +177,7 @@ for current_floorplan in input_floorplans_list:
         print(f'  [ERROR] Sink template image {sinks_folder}{current_sink} not found or unsupported')
       else:
         sink_w, sink_h = sink.shape[::-1]
-        spotitems(floorplan_rgb, floorplan_gray, sink, sink_w, sink_h, 'sink')
+        spotitems(floorplan_rgb, floorplan_gray, sink, sink_w, sink_h, 'sink', current_sink)
     # Compare showers against current floorplan one by one
     anti_duplicates = {}
     for current_shower in showers_templates_list:
@@ -190,7 +187,7 @@ for current_floorplan in input_floorplans_list:
         print(f'  [ERROR] Shower template image {showers_folder}{current_shower} not found or unsupported')
       else:
         shower_w, shower_h = shower.shape[::-1]
-        spotitems(floorplan_rgb, floorplan_gray, shower, shower_w, shower_h, 'shower')
+        spotitems(floorplan_rgb, floorplan_gray, shower, shower_w, shower_h, 'shower', current_shower)
     # Compare bathtubs against current floorplan one by one
     anti_duplicates = {}
     for current_bathtub in bathtubs_templates_list:
@@ -200,7 +197,7 @@ for current_floorplan in input_floorplans_list:
         print(f'  [ERROR] Bathtub template image {bathtubs_folder}{current_bathtub} not found or unsupported')
       else:
         bathtub_w, bathtub_h = bathtub.shape[::-1]
-        spotitems(floorplan_rgb, floorplan_gray, bathtub, bathtub_w, bathtub_h, 'bathtub')
+        spotitems(floorplan_rgb, floorplan_gray, bathtub, bathtub_w, bathtub_h, 'bathtub', current_bathtub)
     # Compare toilets against current floorplan one by one
     anti_duplicates = {}
     for current_toilet in toilets_templates_list:
@@ -210,7 +207,7 @@ for current_floorplan in input_floorplans_list:
         print(f'  [ERROR] Toilet template image {toilets_folder}{current_toilet} not found or unsupported')
       else:
         toilet_w, toilet_h = toilet.shape[::-1]
-        spotitems(floorplan_rgb, floorplan_gray, toilet, toilet_w, toilet_h, 'toilet')
+        spotitems(floorplan_rgb, floorplan_gray, toilet, toilet_w, toilet_h, 'toilet', current_toilet)
     # Compare doors against current floorplan one by one
     anti_duplicates = {}
     for current_door in doors_templates_list:
@@ -220,7 +217,7 @@ for current_floorplan in input_floorplans_list:
         print(f'  [ERROR] Door template image {doors_folder}{current_door} not found or unsupported')
       else:
         door_w, door_h = door.shape[::-1]
-        spotitems(floorplan_rgb, floorplan_gray, door, door_w, door_h, 'door')
+        spotitems(floorplan_rgb, floorplan_gray, door, door_w, door_h, 'door', current_door)
     drawdetecteditems()
     print(f'  [INFO] Writing result file {output_image}{current_floorplan}-detected_items.png')
     cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
@@ -228,8 +225,7 @@ for current_floorplan in input_floorplans_list:
     writeToFile(f'{output_csv}{current_floorplan}-detected_items.csv', 'w', 'id,type,x,y\n')
     for current_item in detected_items:
       print(f"  [DEBUG] Reference: {current_item} - Type: {detected_items[current_item]['type']} - X: {detected_items[current_item]['x']} - Y: {detected_items[current_item]['y']}")
-      writeToFile(f'{output_csv}{current_floorplan}-detected_items.csv', 'a', f'{current_item},{detected_items[current_item]["type"]},{detected_items[current_item]["x"]},{detected_items[current_item]["y"]}\n')
-      writeToFile(f'{output_log}bathfinder.log', 'a', f'[INFO] {current_floorplan} Found {detected_items[current_item]["type"]} with reference {current_item} at {detected_items[current_item]["x"]},{detected_items[current_item]["y"]}\n')
+      writeToFile(f'{output_log}bathfinder.log', 'a', f'  [INFO] {current_floorplan} Found {detected_items[current_item]["type"]} with reference {current_item} at {detected_items[current_item]["x"]},{detected_items[current_item]["y"]}\n')
 
 print('[INFO] Done, exiting.')
 exit(0)
