@@ -42,24 +42,28 @@ def spotitems(floorplan_pic_rgb, floorplan_pic_gray, template_pic, template_w, t
   loc = np.where(res >= threshold)
   if (len(anti_duplicates)>0):
     notDuplicate = False
-    writeToFile(f'{output_log}bathfinder.log', 'a', '[DEBUG] Duplicates list not empty\n')
+    # writeToFile(f'{output_log}bathfinder.log', 'a', '[DEBUG] Duplicates list not empty\n')
   else:
     notDuplicate = True
-    writeToFile(f'{output_log}bathfinder.log', 'a', '[DEBUG] Duplicates list is empty\n')
+    # writeToFile(f'{output_log}bathfinder.log', 'a', '[DEBUG] Duplicates list is empty\n')
   if (len(loc[0]) > 0) and (len(loc[1]) > 0):
     maxdrifty = template_w
     maxdrifx = template_h
     for pt in zip(*loc[::-1]):
       if (len(anti_duplicates)>0):
+        # writeToFile(f'{output_log}bathfinder.log', 'a', f'[DEBUG] Testing {item_type} x:{pt[1]}, y:{pt[0]} \n')
         for current_duplicate in anti_duplicates:
-          if (pt[0]<anti_duplicates[current_duplicate]['minus_y']) and (pt[0]>anti_duplicates[current_duplicate]['plus_y']) and (pt[1]<anti_duplicates[current_duplicate]['minus_x']) and (pt[1]>anti_duplicates[current_duplicate]['plus_x']):
-            notDuplicate = True
+          if (((pt[0]<anti_duplicates[current_duplicate]['minus_y']) or (pt[0]>anti_duplicates[current_duplicate]['plus_y'])) or ((pt[1]<anti_duplicates[current_duplicate]['minus_x']) or (pt[1]>anti_duplicates[current_duplicate]['plus_x']))):
+             notDuplicate = True
+          else:
+            writeToFile(f'{output_log}bathfinder.log', 'a', f'  [DEBUG] Duplicate {current_duplicate} found, not drawing: {item_type} (x:{pt[1]}, y:{pt[0]}) \n')
+            return None
       if (notDuplicate == True):
         rndid=id_generator()
-        print(f'[INFO] New {item_type} ({rndid}) located {pt}')
-        writeToFile(f'{output_log}bathfinder.log', 'a', f'[INFO] New {item_type} ({rndid}) located {pt} \n')
+        print(f'[INFO] New {item_type} ({rndid}) located {pt} validated, will draw')
+        writeToFile(f'{output_log}bathfinder.log', 'a', f'[INFO] New {item_type} ({rndid}) located {pt}, will draw \n')
         detected_items[rndid] = { 'type':item_type, 'x':pt[1], 'y':pt[0], 'height':template_h, 'width':template_w }
-        anti_duplicates[rndid] = { 'minus_x':pt[1] - 10, 'minus_y':pt[0] - 10, 'plus_x':pt[1] + 10, 'plus_y':pt[0] + 10 }
+        anti_duplicates[rndid] = { 'duptype':item_type, 'minus_x':pt[1] - 10, 'minus_y':pt[0] - 10, 'plus_x':pt[1] + 10, 'plus_y':pt[0] + 10 }
         writeToFile(f'{output_log}bathfinder.log', 'a', f'[DEBUG] New duplicate added to the list: minus_x={pt[1] - 10}, minus_y={pt[0] - 10}, plus_x={pt[1] + 10}, plus_y={pt[0] + 10} \n')
 
 def drawdetecteditems():
@@ -72,20 +76,20 @@ def drawdetecteditems():
         border_color_b = 0
       case "door":
         border_color_r = 0
-        border_color_g = 255 
+        border_color_g = 100 
         border_color_b = 0
       case "shower":
         border_color_r = 0
         border_color_g = 0 
         border_color_b = 255
       case "sink":
-        border_color_r = 100
-        border_color_g = 0 
+        border_color_r = 0
+        border_color_g = 255
         border_color_b = 0
       case "toilet":
         border_color_r = 0
-        border_color_g = 100 
-        border_color_b = 0
+        border_color_g = 0 
+        border_color_b = 100
     cv.rectangle(floorplan_rgb, (detected_items[current_item]['y'], detected_items[current_item]['x']), (detected_items[current_item]['y'] + detected_items[current_item]['width'], detected_items[current_item]['x'] + detected_items[current_item]['height']), (border_color_r,border_color_g,border_color_b), 2)
     cv.putText(floorplan_rgb, f'{current_item}', (detected_items[current_item]['y'] + 5, detected_items[current_item]['x'] - 3), cv.FONT_HERSHEY_PLAIN, 1, (border_color_r,border_color_g,border_color_b), 1, cv.LINE_AA)
 
@@ -168,6 +172,7 @@ for current_floorplan in input_floorplans_list:
     writeToFile(f'{output_log}bathfinder.log', 'a', f'[INFO] Processing floorplan {current_floorplan} \n')
     floorplan_gray = cv.cvtColor(floorplan_rgb, cv.COLOR_BGR2GRAY)
     # Compare sinks against current floorplan one by one
+    anti_duplicates = {}
     for current_sink in sinks_templates_list:
       print(f'  [INFO] Checking sink template {sinks_folder}{current_sink}')
       sink = cv.imread(cv.samples.findFile(f'{sinks_folder}{current_sink}'), cv.IMREAD_GRAYSCALE)
@@ -177,6 +182,7 @@ for current_floorplan in input_floorplans_list:
         sink_w, sink_h = sink.shape[::-1]
         spotitems(floorplan_rgb, floorplan_gray, sink, sink_w, sink_h, 'sink')
     # Compare showers against current floorplan one by one
+    anti_duplicates = {}
     for current_shower in showers_templates_list:
       print(f'  [INFO] Checking shower template {showers_folder}{current_shower}')
       shower = cv.imread(cv.samples.findFile(f'{showers_folder}{current_shower}'), cv.IMREAD_GRAYSCALE)
@@ -186,6 +192,7 @@ for current_floorplan in input_floorplans_list:
         shower_w, shower_h = shower.shape[::-1]
         spotitems(floorplan_rgb, floorplan_gray, shower, shower_w, shower_h, 'shower')
     # Compare bathtubs against current floorplan one by one
+    anti_duplicates = {}
     for current_bathtub in bathtubs_templates_list:
       print(f'  [INFO] Checking bathtub template {bathtubs_folder}{current_bathtub}')
       bathtub = cv.imread(cv.samples.findFile(f'{bathtubs_folder}{current_bathtub}'), cv.IMREAD_GRAYSCALE)
@@ -195,6 +202,7 @@ for current_floorplan in input_floorplans_list:
         bathtub_w, bathtub_h = bathtub.shape[::-1]
         spotitems(floorplan_rgb, floorplan_gray, bathtub, bathtub_w, bathtub_h, 'bathtub')
     # Compare toilets against current floorplan one by one
+    anti_duplicates = {}
     for current_toilet in toilets_templates_list:
       print(f'  [INFO] Checking toilet template {toilets_folder}{current_toilet}')
       toilet = cv.imread(cv.samples.findFile(f'{toilets_folder}{current_toilet}'), cv.IMREAD_GRAYSCALE)
@@ -204,6 +212,7 @@ for current_floorplan in input_floorplans_list:
         toilet_w, toilet_h = toilet.shape[::-1]
         spotitems(floorplan_rgb, floorplan_gray, toilet, toilet_w, toilet_h, 'toilet')
     # Compare doors against current floorplan one by one
+    anti_duplicates = {}
     for current_door in doors_templates_list:
       print(f'  [INFO] Checking door template {doors_folder}{current_door}')
       door = cv.imread(cv.samples.findFile(f'{doors_folder}{current_door}'), cv.IMREAD_GRAYSCALE)
