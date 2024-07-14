@@ -8,8 +8,9 @@
 import os
 import string
 import random
+import importlib
 
-thresholdsDb = importlib.import_module(./config/thresholds.py)
+thresholdsDb = importlib.import_module('thresholds')
 thresholds_list = thresholdsDb.thresholds_db
 
 try:
@@ -40,8 +41,11 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
 
 def spotitems(floorplan_pic_rgb, floorplan_pic_gray, template_pic, template_w, template_h, item_type, item_subtype):
   res = cv.matchTemplate(floorplan_pic_gray,template_pic,cv.TM_CCOEFF_NORMED)
-  # threshold = 0.8
-  threshold = 0.7
+  if (item_subtype in thresholds_list):
+    threshold = thresholds_list[item_subtype]
+  else:
+    threshold = thresholds_list[item_type]
+  print(f'[DEBUG] Threshold: {threshold}')
   loc = np.where(res >= threshold)
   if (len(anti_duplicates)>0):
     notDuplicate = False
@@ -56,7 +60,7 @@ def spotitems(floorplan_pic_rgb, floorplan_pic_gray, template_pic, template_w, t
           if (((pt[0]<anti_duplicates[current_duplicate]['minus_y']) or (pt[0]>anti_duplicates[current_duplicate]['plus_y'])) or ((pt[1]<anti_duplicates[current_duplicate]['minus_x']) or (pt[1]>anti_duplicates[current_duplicate]['plus_x']))):
              notDuplicate = True
           else:
-            # writeToFile(f'{output_log}bathfinder.log', 'a', '.')
+            writeToFile(f'{output_log}bathfinder.log', 'a', f'\n  [INFO] Duplicate found: {item_type} ({rndid}) located {pt}, will NOT draw \n')
             notDuplicate = False
             break
       if (notDuplicate == True):
