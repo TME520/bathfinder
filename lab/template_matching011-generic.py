@@ -60,7 +60,7 @@ def spotitems(floorplan_pic_rgb, floorplan_pic_gray, template_pic, template_w, t
           if (((pt[0]<anti_duplicates[current_duplicate]['minus_y']) or (pt[0]>anti_duplicates[current_duplicate]['plus_y'])) or ((pt[1]<anti_duplicates[current_duplicate]['minus_x']) or (pt[1]>anti_duplicates[current_duplicate]['plus_x']))):
              notDuplicate = True
           else:
-            writeToFile(f'{output_log}bathfinder.log', 'a', f'\n  [INFO] Duplicate found: {item_type} ({rndid}) located {pt}, will NOT draw \n')
+            writeToFile(f'{output_log}bathfinder.log', 'a', f'\n  [INFO] Duplicate found: {item_type} located {pt}, will NOT draw \n')
             notDuplicate = False
             break
       if (notDuplicate == True):
