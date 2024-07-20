@@ -1,0 +1,300 @@
+Bathfinder report for run (XLB0NO)
+= floorplan055.png =
+
+- No items detected for that floorplan
+
+= floorplan068.png =
+
+- No items detected for that floorplan
+
+= floorplan064.jpg =
+
+- No items detected for that floorplan
+
+= floorplan071.png =
+
+- No items detected for that floorplan
+
+= floorplan057.png =
+
+- No items detected for that floorplan
+
+= floorplan028.jpg =
+
+- No items detected for that floorplan
+
+= floorplan061.png =
+
+- No items detected for that floorplan
+
+= floorplan054.png =
+
+- No items detected for that floorplan
+
+= floorplan029.jpg =
+
+- No items detected for that floorplan
+
+= floorplan014.png =
+
+- No items detected for that floorplan
+
+= floorplan032.jpg =
+
+- No items detected for that floorplan
+
+= floorplan042.jpg =
+
+- No items detected for that floorplan
+
+= floorplan033.jpg =
+
+- No items detected for that floorplan
+
+= floorplan016.jpg =
+
+- No items detected for that floorplan
+
+= floorplan052.png =
+
+- No items detected for that floorplan
+
+= floorplan002.jpg =
+
+- 1 x sink (2PL8JY)
+- 1 x sink (UBKHBI)
+- 1 x shower (XTRGRM)
+- 1 x bathtub (Y4ED87)
+- 1 x toilet (VH5PRT)
+- 1 x door (S4CWUQ)
+- 1 x door (TWO1XZ)
+- 1 x door (EWD5KN)
+- 1 x door (MPQW9I)
+- 1 x door (SIJ5G1)
+- 1 x door (ERAQKV)
+
+= floorplan060.png =
+
+- No items detected for that floorplan
+
+= floorplan012.jpg =
+
+- No items detected for that floorplan
+
+= floorplan018.png =
+
+- No items detected for that floorplan
+
+= floorplan046.jpg =
+
+- No items detected for that floorplan
+
+= floorplan049.jpg =
+
+- No items detected for that floorplan
+
+= floorplan008.jpg =
+
+- No items detected for that floorplan
+
+= floorplan044.png =
+
+- No items detected for that floorplan
+
+= floorplan007.png =
+
+- No items detected for that floorplan
+
+= floorplan043.png =
+
+- No items detected for that floorplan
+
+= floorplan045.jpg =
+
+- No items detected for that floorplan
+
+= floorplan047.jpg =
+
+- No items detected for that floorplan
+
+= floorplan065.jpeg =
+
+- 1 x door (WAIGSM)
+- 1 x door (KOS7V4)
+
+= floorplan024.png =
+
+- No items detected for that floorplan
+
+= floorplan006.jpg =
+
+- No items detected for that floorplan
+
+= floorplan001.jpg =
+
+- 1 x sink (8DOO3Q)
+- 1 x sink (H50JU9)
+- 1 x shower (IW6ZJU)
+- 1 x bathtub (DYS7FV)
+- 1 x toilet (SEXDRX)
+- 1 x toilet (E75EOJ)
+- 1 x door (P8KHR0)
+- 1 x door (G7SRLK)
+- 1 x door (AZTDOK)
+- 1 x door (13H1FI)
+- 1 x door (9EPLUX)
+- 1 x door (3EJV7V)
+- 1 x door (97Z1R9)
+- 1 x door (HS1WDK)
+- 1 x door (O9FSH7)
+- 1 x door (AC4JPW)
+- 1 x door (08NY4B)
+
+= floorplan066.jpg =
+
+- No items detected for that floorplan
+
+= floorplan034.jpg =
+
+- No items detected for that floorplan
+
+= floorplan069.jpeg =
+
+- No items detected for that floorplan
+
+= floorplan036.jpg =
+
+- No items detected for that floorplan
+
+= floorplan031.jpg =
+
+- No items detected for that floorplan
+
+= floorplan058.png =
+
+- No items detected for that floorplan
+
+= floorplan056.png =
+
+- No items detected for that floorplan
+
+= floorplan007.jpg =
+
+- No items detected for that floorplan
+
+= floorplan026.png =
+
+- No items detected for that floorplan
+
+= floorplan011.jpg =
+
+- No items detected for that floorplan
+
+= floorplan070.jpeg =
+
+- No items detected for that floorplan
+
+= floorplan017.jpg =
+
+- No items detected for that floorplan
+
+= floorplan009.jpg =
+
+- No items detected for that floorplan
+
+= floorplan041.jpg =
+
+- No items detected for that floorplan
+
+= floorplan038.jpg =
+
+- No items detected for that floorplan
+
+= floorplan019.jpg =
+
+- No items detected for that floorplan
+
+= floorplan059.png =
+
+- No items detected for that floorplan
+
+= floorplan013.jpg =
+
+- No items detected for that floorplan
+
+= floorplan037.jpg =
+
+- No items detected for that floorplan
+
+= floorplan048.jpg =
+
+- No items detected for that floorplan
+
+= floorplan010.jpg =
+
+- No items detected for that floorplan
+
+= floorplan053.png =
+
+- No items detected for that floorplan
+
+= floorplan015.jpg =
+
+- No items detected for that floorplan
+
+= floorplan062.jpg =
+
+- No items detected for that floorplan
+
+= floorplan035.jpg =
+
+- No items detected for that floorplan
+
+= floorplan051.png =
+
+- No items detected for that floorplan
+
+= floorplan025.jpg =
+
+- 1 x door (K6GWES)
+- 1 x door (HEBCSE)
+
+= floorplan050.png =
+
+- No items detected for that floorplan
+
+= floorplan027.jpg =
+
+- 1 x door (ED9CB6)
+- 1 x door (WF6XAF)
+
+= floorplan004.jpg =
+
+- No items detected for that floorplan
+
+= floorplan005.jpg =
+
+- No items detected for that floorplan
+
+= floorplan063.jpg =
+
+- No items detected for that floorplan
+
+= floorplan003.jpg =
+
+- 1 x door (NGR90J)
+- 1 x door (KHS96H)
+- 1 x door (8WQUBV)
+- 1 x door (XQ5PLD)
+
+= floorplan021.JPG =
+
+- 1 x door (1ASHXB)
+- 1 x door (Z43WXB)
+- 1 x door (JO4PLR)
+- 1 x door (SOLSOD)
+
+= floorplan030.jpg =
+
+- No items detected for that floorplan
+

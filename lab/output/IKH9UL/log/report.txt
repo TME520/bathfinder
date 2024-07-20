@@ -1,0 +1,244 @@
+Bathfinder report for run (IKH9UL)
+= floorplan055.png =
+
+- No items detected for that floorplan
+
+= floorplan068.png =
+
+- 1 x sink (YPE6V6)
+
+= floorplan064.jpg =
+
+- 1 x sink (HKBQII)
+
+= floorplan071.png =
+
+- 1 x sink (28BEO9)
+
+= floorplan057.png =
+
+- No items detected for that floorplan
+
+= floorplan028.jpg =
+
+- No items detected for that floorplan
+
+= floorplan061.png =
+
+- 1 x sink (4DB2VU)
+- 1 x sink (8L6ZH1)
+- 1 x sink (R41BFX)
+- 1 x sink (IXUMIU)
+- 1 x sink (ICU04R)
+- 1 x sink (XD556V)
+- 1 x sink (13GCFC)
+- 1 x sink (WPH2RE)
+- 1 x sink (COAZ5V)
+- 1 x sink (7IO6FQ)
+- 1 x sink (Z37T7U)
+- 1 x sink (SSNV7A)
+- 1 x sink (HRH8UX)
+- 1 x sink (OV58NK)
+- 1 x sink (XYCCPO)
+- 1 x sink (670H9H)
+- 1 x sink (FH6YVK)
+- 1 x sink (N3H4P5)
+- 1 x sink (Y89UVP)
+
+= floorplan054.png =
+
+- 1 x sink (KC5PY8)
+
+= floorplan029.jpg =
+
+- No items detected for that floorplan
+
+= floorplan014.png =
+
+- 1 x sink (ORLLPV)
+
+= floorplan032.jpg =
+
+- No items detected for that floorplan
+
+= floorplan042.jpg =
+
+- No items detected for that floorplan
+
+= floorplan033.jpg =
+
+- No items detected for that floorplan
+
+= floorplan016.jpg =
+
+- No items detected for that floorplan
+
+= floorplan052.png =
+
+- No items detected for that floorplan
+
+= floorplan002.jpg =
+
+- 1 x sink (TMIXJY)
+- 1 x sink (D8Y8JV)
+- 1 x sink (5AXHMR)
+- 1 x sink (JCJP11)
+- 1 x sink (IPUH3V)
+- 1 x sink (G32W72)
+- 1 x sink (I5YRTI)
+- 1 x shower (KIMADZ)
+- 1 x shower (5NPOZ3)
+- 1 x bathtub (MBZHR6)
+- 1 x toilet (YW8DDO)
+- 1 x door (VB4ZRA)
+- 1 x door (8TRR39)
+- 1 x door (CT7RA7)
+- 1 x door (RY68JQ)
+- 1 x door (0QS8MO)
+- 1 x door (J3GLO1)
+
+= floorplan060.png =
+
+- 1 x sink (40QDDA)
+
+= floorplan012.jpg =
+
+- No items detected for that floorplan
+
+= floorplan018.png =
+
+- 1 x sink (K9KR4E)
+- 1 x shower (M8OF8M)
+- 1 x shower (B23DUN)
+
+= floorplan046.jpg =
+
+- 1 x sink (7EQGTY)
+- 1 x sink (2QN725)
+
+= floorplan049.jpg =
+
+- No items detected for that floorplan
+
+= floorplan008.jpg =
+
+- No items detected for that floorplan
+
+= floorplan044.png =
+
+- No items detected for that floorplan
+
+= floorplan007.png =
+
+- No items detected for that floorplan
+
+= floorplan043.png =
+
+- No items detected for that floorplan
+
+= floorplan045.jpg =
+
+- No items detected for that floorplan
+
+= floorplan047.jpg =
+
+- 1 x sink (L62LT7)
+
+= floorplan065.jpeg =
+
+- 1 x door (I0HLU5)
+- 1 x door (3XNEA6)
+
+= floorplan024.png =
+
+- No items detected for that floorplan
+
+= floorplan006.jpg =
+
+- No items detected for that floorplan
+
+= floorplan001.jpg =
+
+- 1 x sink (IOMJZI)
+- 1 x sink (GCNE5K)
+- 1 x shower (5KK38F)
+- 1 x bathtub (K7ZZS3)
+- 1 x toilet (C6KB3K)
+- 1 x toilet (FOG01D)
+- 1 x door (I9QWEM)
+- 1 x door (TAQP8B)
+- 1 x door (3RT5S6)
+- 1 x door (1J5G2Q)
+- 1 x door (JX56FC)
+- 1 x door (5DKYS2)
+- 1 x door (8H6FBP)
+- 1 x door (CZBBJ2)
+- 1 x door (J4GCKV)
+- 1 x door (OWMFPU)
+- 1 x door (GCF9BT)
+
+= floorplan066.jpg =
+
+- 1 x sink (CVXB15)
+- 1 x sink (KV4FSI)
+- 1 x sink (FBAKTW)
+- 1 x sink (UIHVM8)
+
+= floorplan034.jpg =
+
+- No items detected for that floorplan
+
+= floorplan069.jpeg =
+
+- 1 x sink (UDPYC1)
+- 1 x sink (WTCFKM)
+- 1 x sink (5T7VWD)
+- 1 x sink (744TKU)
+
+= floorplan036.jpg =
+
+- 1 x sink (ZDA9Z1)
+
+= floorplan031.jpg =
+
+- 1 x sink (HIEZTB)
+- 1 x sink (SCGAV3)
+- 1 x sink (4J9CL6)
+- 1 x sink (1FUQCW)
+- 1 x sink (GHAV83)
+- 1 x sink (BMZ5UN)
+- 1 x sink (YSX2GS)
+- 1 x sink (N90T0E)
+- 1 x sink (4AXVHF)
+- 1 x sink (NPPE0E)
+- 1 x sink (KJOX51)
+- 1 x sink (TLCNDE)
+- 1 x sink (QT3ENQ)
+- 1 x sink (U937GX)
+- 1 x sink (MO2TJJ)
+- 1 x sink (UG2KP6)
+
+= floorplan058.png =
+
+- No items detected for that floorplan
+
+= floorplan056.png =
+
+- 1 x sink (1817VH)
+
+= floorplan007.jpg =
+
+- 1 x sink (HIW8ND)
+
+= floorplan026.png =
+
+- 1 x sink (2E5F4A)
+- 1 x sink (8R2F8C)
+- 1 x sink (YKVENQ)
+
+= floorplan011.jpg =
+
+- No items detected for that floorplan
+
+= floorplan070.jpeg =
+
