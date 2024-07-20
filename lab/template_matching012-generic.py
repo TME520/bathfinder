@@ -178,7 +178,7 @@ for current_floorplan in input_floorplans_list:
     writeToFile(f'{output_log}bathfinder.log', 'a', f'[ERROR] Floorplan image {floorplans_folder}{current_floorplan} not found or unsupported \n')
   else:
     writeToFile(f'{output_log}bathfinder.log', 'a', f'[INFO] Processing floorplan {current_floorplan} \n')
-    writeToFile(f'{output_log}report.html', 'w', f'<H2>{current_floorplan}</H2>\n')
+    writeToFile(f'{output_log}report.html', 'a', f'<H2>{current_floorplan}</H2>\n')
     writeToFile(f'{output_log}report.txt', 'a', f'# {current_floorplan} ')
     floorplan_gray = cv.cvtColor(floorplan_rgb, cv.COLOR_BGR2GRAY)
     # Compare sinks against current floorplan one by one
@@ -241,9 +241,11 @@ for current_floorplan in input_floorplans_list:
       for current_item in detected_items:
         print(f"  [DEBUG] Reference: {current_item} - Type: {detected_items[current_item]['type']} - X: {detected_items[current_item]['x']} - Y: {detected_items[current_item]['y']}")
         writeToFile(f'{output_log}bathfinder.log', 'a', f'  [INFO] {current_floorplan} Found {detected_items[current_item]["type"]} with reference {current_item} at {detected_items[current_item]["x"]},{detected_items[current_item]["y"]}\n')
+        writeToFile(f'{output_csv}{current_floorplan}-detected_items.csv', 'a', f'{current_item},{detected_items[current_item]["type"]},{detected_items[current_item]["x"]},{detected_items[current_item]["y"]}\n')
         writeToFile(f'{output_log}report.txt', 'a', f"\n- 1 x {detected_items[current_item]['type']} ({current_item})\n")
         writeToFile(f'{output_log}report.html', 'a', f"<LI>1 x {detected_items[current_item]['type']} ({current_item})</LI>")
-      writeToFile(f'{output_log}report.html', 'a', f'</UL>')
+      writeToFile(f'{output_log}report.html', 'a', f'</UL>\n')
+      writeToFile(f'{output_log}report.html', 'a', f'<IMG SRC="{output_image}{current_floorplan}-detected_items.png"></BR>\n')
     else:
       writeToFile(f'{output_log}report.txt', 'a', f'- No items detected for that floorplan\n')
       writeToFile(f'{output_log}report.html', 'a', f'<B><FONT COLOR="red">No items detected for that floorplan</FONT></B></BR>')
