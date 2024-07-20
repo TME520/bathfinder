@@ -16,6 +16,10 @@ thresholds_db = {
   'floorplan002-sink02.png':0.9,
   'floorplan002-sink02-rot90.png':0.9,
   'floorplan002-sink02-rot180.png':0.9,
-  'floorplan002-sink02-rot270.png':0.9
+  'floorplan002-sink02-rot270.png':0.9,
+  'floorplan003-shower01.png':0.95,
+  'floorplan003-shower01-rot90.png':0.95,
+  'floorplan003-shower01-rot180.png':0.95,
+  'floorplan003-shower01-rot270.png':0.95
 }
 
