@@ -49,7 +49,8 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1, room_clos
       if x2[0] - x1[0] < room_closing_max_length:
         color = 0
         # print(f'x1: {x1}, x2: {x2}')
-        cv2.line(img, (int(x1), int(y)), (int(x2), int(y)), color, 1)
+        # print(f'\t\tx1[0]: {x1[0]}, x2[0]: {x2[0]}')
+        cv2.line(img, (int(x1[0]), int(y)), (int(x2[0]), int(y)), color, 1)
 
   for x,col in enumerate(corners.T):
     y_same_x = np.argwhere(col)
@@ -57,7 +58,7 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1, room_clos
       if y2[0] - y1[0] < room_closing_max_length:
         color = 0
         # print(f'y1: {y1}, y2: {y2}')
-        cv2.line(img, (int(x), int(y1)), (int(x), int(y2)), color, 1)
+        cv2.line(img, (int(x), int(y1[0])), (int(x), int(y2[0])), color, 1)
 
   # Mark the outside of the house as black
   contours, _ = cv2.findContours(~img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -80,6 +81,7 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1, room_clos
       rooms.append(component)
       color = np.random.randint(0, 255, size=3)
     img[component] = color
+  # print(f'Rooms: {rooms}')
 
   # cv2.imshow("Processed", img)
   cv2.imwrite("room_detection_output.png", img)
