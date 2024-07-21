@@ -1,4 +1,5 @@
 import os
+import random
 
 try:
   import numpy as np
@@ -34,6 +35,7 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1, room_clos
     if area > noise_removal_threshold:
       cv2.fillPoly(mask, [contour], 255)
   img = ~mask
+  cv2.imwrite("step1-room_detection_output.png", img)
 
   # Detect corners
   dst = cv2.cornerHarris(img ,2,3,0.04)
@@ -47,18 +49,28 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1, room_clos
     x_same_y = np.argwhere(row)
     for x1, x2 in zip(x_same_y[:-1], x_same_y[1:]):
       if x2[0] - x1[0] < room_closing_max_length:
-        color = 0
+        # color = 0
+        color = 230
+        # color = random.randint(0,255) 
         # print(f'x1: {x1}, x2: {x2}')
         # print(f'\t\tx1[0]: {x1[0]}, x2[0]: {x2[0]}')
         cv2.line(img, (int(x1[0]), int(y)), (int(x2[0]), int(y)), color, 1)
+  cv2.imwrite("step2-room_detection_output.png", img)
 
   for x,col in enumerate(corners.T):
     y_same_x = np.argwhere(col)
     for y1, y2 in zip(y_same_x[:-1], y_same_x[1:]):
       if y2[0] - y1[0] < room_closing_max_length:
-        color = 0
+        # color = 0
+        color = 230
+        # color = random.randint(0,255)
         # print(f'y1: {y1}, y2: {y2}')
         cv2.line(img, (int(x), int(y1[0])), (int(x), int(y2[0])), color, 1)
+  cv2.imwrite("step3-room_detection_output.png", img)
+
+  cv2.imwrite("room_detection_output.png", img)
+  rooms = []
+  return rooms, img
 
   # Mark the outside of the house as black
   contours, _ = cv2.findContours(~img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
@@ -66,7 +78,8 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1, room_clos
   biggest_contour = max(contour_sizes, key=lambda x: x[0])[1]
   mask = np.zeros_like(mask)
   cv2.fillPoly(mask, [biggest_contour], 255)
-  img[mask == 0] = 0
+  # img[mask == 0] = 0
+  img[mask == 0] = 10
 
   # Find the connected components in the house
   ret, labels = cv2.connectedComponents(img)
@@ -83,7 +96,6 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1, room_clos
     img[component] = color
   # print(f'Rooms: {rooms}')
 
-  # cv2.imshow("Processed", img)
   cv2.imwrite("room_detection_output.png", img)
 
   return rooms, img
@@ -94,11 +106,13 @@ img_gray = cv2.imread(IMAGE_NAME, cv2.IMREAD_GRAYSCALE)
 thresh = 127
 img_bw = cv2.threshold(img_gray, thresh, 255, cv2.THRESH_BINARY)[1]
 
-kernel = np.ones((5, 5), np.uint8)
+# kernel = np.ones((5, 5), np.uint8)
+kernel = np.ones((3, 3), np.uint8)
 img_eroded = cv2.erode(img_bw, kernel, iterations=2)
 # cv2.imshow("Eroded pic", img_eroded)
 img_dilated = cv2.dilate(img_bw, kernel)
 # cv2.imshow("Dilated pic", img_dilated)
+cv2.imwrite("step0-room_detection_output.png", img_dilated)
 
 rooms, colored_house = find_rooms(img_dilated.copy())
 
@@ -106,7 +120,7 @@ rooms, colored_house = find_rooms(img_dilated.copy())
 
 # Press any key to close the image
 # cv2.waitKey(0)
-# cv2.destroyAllWindows()
+cv2.destroyAllWindows()
 
 exit(0)
 
