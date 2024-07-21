@@ -59,11 +59,31 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1, room_clos
         # print(f'y1: {y1}, y2: {y2}')
         cv2.line(img, (int(x), int(y1)), (int(x), int(y2)), color, 1)
 
+  # Mark the outside of the house as black
+  contours, _ = cv2.findContours(~img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+  contour_sizes = [(cv2.contourArea(contour), contour) for contour in contours]
+  biggest_contour = max(contour_sizes, key=lambda x: x[0])[1]
+  mask = np.zeros_like(mask)
+  cv2.fillPoly(mask, [biggest_contour], 255)
+  img[mask == 0] = 0
+
+  # Find the connected components in the house
+  ret, labels = cv2.connectedComponents(img)
+  img = cv2.cvtColor(img,cv2.COLOR_GRAY2RGB)
+  unique = np.unique(labels)
+  rooms = []
+  for label in unique:
+    component = labels == label
+    if img[component].sum() == 0 or np.count_nonzero(component) < gap_in_wall_threshold:
+      color = 0
+    else:
+      rooms.append(component)
+      color = np.random.randint(0, 255, size=3)
+    img[component] = color
+
   # cv2.imshow("Processed", img)
   cv2.imwrite("room_detection_output.png", img)
 
-  rooms = []
-  img = cv2.cvtColor(img,cv2.COLOR_GRAY2RGB)
   return rooms, img
 
 IMAGE_NAME = 'TRY005-floorplan001.jpg'
@@ -76,7 +96,7 @@ kernel = np.ones((5, 5), np.uint8)
 img_eroded = cv2.erode(img_bw, kernel, iterations=2)
 # cv2.imshow("Eroded pic", img_eroded)
 img_dilated = cv2.dilate(img_bw, kernel)
-cv2.imshow("Dilated pic", img_dilated)
+# cv2.imshow("Dilated pic", img_dilated)
 
 rooms, colored_house = find_rooms(img_dilated.copy())
 
