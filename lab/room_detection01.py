@@ -49,8 +49,7 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1, room_clos
     x_same_y = np.argwhere(row)
     for x1, x2 in zip(x_same_y[:-1], x_same_y[1:]):
       if x2[0] - x1[0] < room_closing_max_length:
-        # color = 0
-        color = 230
+        color = 0
         # color = random.randint(0,255) 
         # print(f'x1: {x1}, x2: {x2}')
         # print(f'\t\tx1[0]: {x1[0]}, x2[0]: {x2[0]}')
@@ -61,8 +60,7 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1, room_clos
     y_same_x = np.argwhere(col)
     for y1, y2 in zip(y_same_x[:-1], y_same_x[1:]):
       if y2[0] - y1[0] < room_closing_max_length:
-        # color = 0
-        color = 230
+        color = 0
         # color = random.randint(0,255)
         # print(f'y1: {y1}, y2: {y2}')
         cv2.line(img, (int(x), int(y1[0])), (int(x), int(y2[0])), color, 1)
