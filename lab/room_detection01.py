@@ -34,7 +34,33 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1, room_clos
     if area > noise_removal_threshold:
       cv2.fillPoly(mask, [contour], 255)
   img = ~mask
-  cv2.imshow("Contoured", img)
+
+  # Detect corners
+  dst = cv2.cornerHarris(img ,2,3,0.04)
+  dst = cv2.dilate(dst,None)
+  corners = dst > corners_threshold * dst.max()
+
+  # Draw lines to close the rooms off by adding a line between corners on the same x or y coordinate
+  # This gets some false positives.
+  # You could try to disallow drawing through other existing lines for example.
+  for y,row in enumerate(corners):
+    x_same_y = np.argwhere(row)
+    for x1, x2 in zip(x_same_y[:-1], x_same_y[1:]):
+      if x2[0] - x1[0] < room_closing_max_length:
+        color = 0
+        # print(f'x1: {x1}, x2: {x2}')
+        cv2.line(img, (int(x1), int(y)), (int(x2), int(y)), color, 1)
+
+  for x,col in enumerate(corners.T):
+    y_same_x = np.argwhere(col)
+    for y1, y2 in zip(y_same_x[:-1], y_same_x[1:]):
+      if y2[0] - y1[0] < room_closing_max_length:
+        color = 0
+        # print(f'y1: {y1}, y2: {y2}')
+        cv2.line(img, (int(x), int(y1)), (int(x), int(y2)), color, 1)
+
+  # cv2.imshow("Processed", img)
+  cv2.imwrite("room_detection_output.png", img)
 
   rooms = []
   img = cv2.cvtColor(img,cv2.COLOR_GRAY2RGB)
@@ -54,11 +80,11 @@ cv2.imshow("Dilated pic", img_dilated)
 
 rooms, colored_house = find_rooms(img_dilated.copy())
 
-cv2.imwrite("room_detection_output.png", img_bw)
+# cv2.imwrite("room_detection_output.png", img_bw)
 
 # Press any key to close the image
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
 
 exit(0)
 
