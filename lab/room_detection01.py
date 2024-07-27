@@ -13,6 +13,9 @@ except ImportError:
 
 import sys
 
+# Floorplan to process
+IMAGE_NAME = './input/floorplans/floorplan007.jpg'
+
 def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1, room_closing_max_length=100, gap_in_wall_threshold=500):
   """
   :param img: grey scale image of rooms, already eroded and doors removed etc.
@@ -98,7 +101,6 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1, room_clos
 
   return rooms, img
 
-IMAGE_NAME = 'TRY005-floorplan001.jpg'
 img_gray = cv2.imread(IMAGE_NAME, cv2.IMREAD_GRAYSCALE)
 (thresh, img_bw) = cv2.threshold(img_gray, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
 thresh = 127

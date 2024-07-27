@@ -82,7 +82,7 @@ def find_rooms(img, noise_removal_threshold=25, corners_threshold=0.1,
 
 
 #Read gray image
-img = cv2.imread("./TRY005-floorplan001.jpg", 0)
+img = cv2.imread("./TRY005-floorplan002.jpg", 0)
 rooms, colored_house = find_rooms(img.copy())
 cv2.imshow('result', colored_house)
 cv2.waitKey()

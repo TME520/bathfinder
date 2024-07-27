@@ -1,4 +1,4 @@
-[INFO] New run (67ZS5W)
+[INFO] New run (IO6NOR)
 [ERROR] Floorplan image ./input/floorplans/floorplan022.gif not found or unsupported 
 [INFO] Processing floorplan floorplan055.png 
 [INFO] Processing floorplan floorplan068.png 
@@ -18,55 +18,55 @@
 [INFO] Processing floorplan floorplan052.png 
 [INFO] Processing floorplan floorplan002.jpg 
 
-  [INFO] New sink (WOPU9K) located (132, 303), will draw 
+  [INFO] New sink (J3PLMK) located (132, 303), will draw 
   [DEBUG] New duplicate added to the list: duptype=sink, subtype=floorplan002-sink02-rot180.png, minus_x=293, minus_y=122, plus_x=313, plus_y=142 
 
-  [INFO] New sink (SXJSKU) located (480, 372), will draw 
+  [INFO] New sink (Q5O93K) located (480, 372), will draw 
   [DEBUG] New duplicate added to the list: duptype=sink, subtype=floorplan002-sink01.png, minus_x=362, minus_y=470, plus_x=382, plus_y=490 
 
   [INFO] Duplicate found: sink located (132, 303), will NOT draw 
 
-  [INFO] New shower (JPXM0E) located (460, 417), will draw 
+  [INFO] New shower (Y8PJ6V) located (460, 417), will draw 
   [DEBUG] New duplicate added to the list: duptype=shower, subtype=floorplan002-shower01.png, minus_x=407, minus_y=450, plus_x=427, plus_y=470 
 
-  [INFO] New bathtub (PASE8A) located (351, 320), will draw 
+  [INFO] New bathtub (JOJW2D) located (351, 320), will draw 
   [DEBUG] New duplicate added to the list: duptype=bathtub, subtype=floorplan002-bathtub01.png, minus_x=310, minus_y=341, plus_x=330, plus_y=361 
 
-  [INFO] New toilet (WO1HTJ) located (471, 332), will draw 
+  [INFO] New toilet (457NG4) located (471, 332), will draw 
   [DEBUG] New duplicate added to the list: duptype=toilet, subtype=floorplan002-toilet01.png, minus_x=322, minus_y=461, plus_x=342, plus_y=481 
 
-  [INFO] New door (BZ5Q18) located (536, 319), will draw 
+  [INFO] New door (XSBH6I) located (536, 319), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot180-hormir.png, minus_x=309, minus_y=526, plus_x=329, plus_y=546 
 
-  [INFO] New door (T7DS3T) located (173, 392), will draw 
+  [INFO] New door (CPU92V) located (173, 392), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot90-hormir.png, minus_x=382, minus_y=163, plus_x=402, plus_y=183 
 
-  [INFO] New door (EHLT36) located (173, 336), will draw 
+  [INFO] New door (VAWP1P) located (173, 336), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot270.png, minus_x=326, minus_y=163, plus_x=346, plus_y=183 
 
   [INFO] Duplicate found: door located (174, 336), will NOT draw 
 
-  [INFO] New door (ESAIVC) located (512, 203), will draw 
+  [INFO] New door (0TDSYI) located (512, 203), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot270-hormir.png, minus_x=193, minus_y=502, plus_x=213, plus_y=522 
 
   [INFO] Duplicate found: door located (511, 203), will NOT draw 
 
-  [INFO] New door (F9J2G9) located (624, 203), will draw 
+  [INFO] New door (VWV919) located (624, 203), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01.png, minus_x=193, minus_y=614, plus_x=213, plus_y=634 
 
-  [INFO] New door (UI773D) located (635, 263), will draw 
+  [INFO] New door (V974AN) located (635, 263), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door02.png, minus_x=253, minus_y=625, plus_x=273, plus_y=645 
-  [INFO] floorplan002.jpg Found sink with reference WOPU9K at 303,132
-  [INFO] floorplan002.jpg Found sink with reference SXJSKU at 372,480
-  [INFO] floorplan002.jpg Found shower with reference JPXM0E at 417,460
-  [INFO] floorplan002.jpg Found bathtub with reference PASE8A at 320,351
-  [INFO] floorplan002.jpg Found toilet with reference WO1HTJ at 332,471
-  [INFO] floorplan002.jpg Found door with reference BZ5Q18 at 319,536
-  [INFO] floorplan002.jpg Found door with reference T7DS3T at 392,173
-  [INFO] floorplan002.jpg Found door with reference EHLT36 at 336,173
-  [INFO] floorplan002.jpg Found door with reference ESAIVC at 203,512
-  [INFO] floorplan002.jpg Found door with reference F9J2G9 at 203,624
-  [INFO] floorplan002.jpg Found door with reference UI773D at 263,635
+  [INFO] floorplan002.jpg Found sink with reference J3PLMK at 303,132
+  [INFO] floorplan002.jpg Found sink with reference Q5O93K at 372,480
+  [INFO] floorplan002.jpg Found shower with reference Y8PJ6V at 417,460
+  [INFO] floorplan002.jpg Found bathtub with reference JOJW2D at 320,351
+  [INFO] floorplan002.jpg Found toilet with reference 457NG4 at 332,471
+  [INFO] floorplan002.jpg Found door with reference XSBH6I at 319,536
+  [INFO] floorplan002.jpg Found door with reference CPU92V at 392,173
+  [INFO] floorplan002.jpg Found door with reference VAWP1P at 336,173
+  [INFO] floorplan002.jpg Found door with reference 0TDSYI at 203,512
+  [INFO] floorplan002.jpg Found door with reference VWV919 at 203,624
+  [INFO] floorplan002.jpg Found door with reference V974AN at 263,635
 [INFO] Processing floorplan floorplan060.png 
 [INFO] Processing floorplan floorplan012.jpg 
 [INFO] Processing floorplan floorplan018.png 
@@ -80,22 +80,22 @@
 [INFO] Processing floorplan floorplan047.jpg 
 [INFO] Processing floorplan floorplan065.jpeg 
 
-  [INFO] New door (X37YDL) located (956, 443), will draw 
+  [INFO] New door (0ZUKSY) located (956, 443), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot180-hormir.png, minus_x=433, minus_y=946, plus_x=453, plus_y=966 
 
   [INFO] Duplicate found: door located (957, 443), will NOT draw 
 
   [INFO] Duplicate found: door located (956, 444), will NOT draw 
 
-  [INFO] New door (4RXXI1) located (655, 327), will draw 
+  [INFO] New door (VMYNKP) located (655, 327), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01.png, minus_x=317, minus_y=645, plus_x=337, plus_y=665 
-  [INFO] floorplan065.jpeg Found door with reference X37YDL at 443,956
-  [INFO] floorplan065.jpeg Found door with reference 4RXXI1 at 327,655
+  [INFO] floorplan065.jpeg Found door with reference 0ZUKSY at 443,956
+  [INFO] floorplan065.jpeg Found door with reference VMYNKP at 327,655
 [INFO] Processing floorplan floorplan024.png 
 [INFO] Processing floorplan floorplan006.jpg 
 [INFO] Processing floorplan floorplan001.jpg 
 
-  [INFO] New sink (G7HBM8) located (1068, 560), will draw 
+  [INFO] New sink (0OVONZ) located (1068, 560), will draw 
   [DEBUG] New duplicate added to the list: duptype=sink, subtype=floorplan001-sink01.png, minus_x=550, minus_y=1058, plus_x=570, plus_y=1078 
 
   [INFO] Duplicate found: sink located (1069, 560), will NOT draw 
@@ -136,7 +136,7 @@
 
   [INFO] Duplicate found: sink located (1071, 560), will NOT draw 
 
-  [INFO] New sink (989YRV) located (837, 558), will draw 
+  [INFO] New sink (FLBGQF) located (837, 558), will draw 
   [DEBUG] New duplicate added to the list: duptype=sink, subtype=floorplan001-sink02.png, minus_x=548, minus_y=827, plus_x=568, plus_y=847 
 
   [INFO] Duplicate found: sink located (838, 558), will NOT draw 
@@ -167,7 +167,7 @@
 
   [INFO] Duplicate found: sink located (838, 562), will NOT draw 
 
-  [INFO] New shower (DSHNHI) located (978, 555), will draw 
+  [INFO] New shower (ULQIDX) located (978, 555), will draw 
   [DEBUG] New duplicate added to the list: duptype=shower, subtype=floorplan001-shower01-rot90.png, minus_x=545, minus_y=968, plus_x=565, plus_y=988 
 
   [INFO] Duplicate found: shower located (976, 556), will NOT draw 
@@ -372,7 +372,7 @@
 
   [INFO] Duplicate found: shower located (978, 565), will NOT draw 
 
-  [INFO] New bathtub (CRI4NR) located (1151, 579), will draw 
+  [INFO] New bathtub (GLZJPA) located (1151, 579), will draw 
   [DEBUG] New duplicate added to the list: duptype=bathtub, subtype=floorplan001-bathtub01.png, minus_x=569, minus_y=1141, plus_x=589, plus_y=1161 
 
   [INFO] Duplicate found: bathtub located (1150, 580), will NOT draw 
@@ -465,7 +465,7 @@
 
   [INFO] Duplicate found: bathtub located (1152, 587), will NOT draw 
 
-  [INFO] New toilet (9K8GP8) located (154, 431), will draw 
+  [INFO] New toilet (ONJM5L) located (154, 431), will draw 
   [DEBUG] New duplicate added to the list: duptype=toilet, subtype=floorplan001-toilet01.png, minus_x=421, minus_y=144, plus_x=441, plus_y=164 
 
   [INFO] Duplicate found: toilet located (155, 431), will NOT draw 
@@ -504,7 +504,7 @@
 
   [INFO] Duplicate found: toilet located (155, 435), will NOT draw 
 
-  [INFO] New toilet (Q0PTC5) located (1156, 722), will draw 
+  [INFO] New toilet (SX8AC9) located (1156, 722), will draw 
   [DEBUG] New duplicate added to the list: duptype=toilet, subtype=floorplan001-toilet01-rot180.png, minus_x=712, minus_y=1146, plus_x=732, plus_y=1166 
 
   [INFO] Duplicate found: toilet located (1157, 722), will NOT draw 
@@ -539,7 +539,7 @@
 
   [INFO] Duplicate found: toilet located (1158, 725), will NOT draw 
 
-  [INFO] New door (NYUOOX) located (486, 273), will draw 
+  [INFO] New door (NK6YNZ) located (486, 273), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan001-door01-rot90.png, minus_x=263, minus_y=476, plus_x=283, plus_y=496 
 
   [INFO] Duplicate found: door located (487, 273), will NOT draw 
@@ -556,7 +556,7 @@
 
   [INFO] Duplicate found: door located (486, 275), will NOT draw 
 
-  [INFO] New door (9IMWZE) located (314, 405), will draw 
+  [INFO] New door (QDYYEE) located (314, 405), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan001-door01-rot90.png, minus_x=395, minus_y=304, plus_x=415, plus_y=324 
 
   [INFO] Duplicate found: door located (315, 405), will NOT draw 
@@ -623,7 +623,7 @@
 
   [INFO] Duplicate found: door located (315, 411), will NOT draw 
 
-  [INFO] New door (SRO80D) located (890, 1063), will draw 
+  [INFO] New door (9105VW) located (890, 1063), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan001-door01-rot90.png, minus_x=1053, minus_y=880, plus_x=1073, plus_y=900 
 
   [INFO] Duplicate found: door located (891, 1063), will NOT draw 
@@ -694,7 +694,7 @@
 
   [INFO] Duplicate found: door located (890, 1070), will NOT draw 
 
-  [INFO] New door (8IT1O0) located (879, 706), will draw 
+  [INFO] New door (0ZWWCR) located (879, 706), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan001-door01-rot180-hormir.png, minus_x=696, minus_y=869, plus_x=716, plus_y=889 
 
   [INFO] Duplicate found: door located (880, 706), will NOT draw 
@@ -737,7 +737,7 @@
 
   [INFO] Duplicate found: door located (880, 709), will NOT draw 
 
-  [INFO] New door (S985D7) located (591, 436), will draw 
+  [INFO] New door (ZDB6UW) located (591, 436), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan001-door01.png, minus_x=426, minus_y=581, plus_x=446, plus_y=601 
 
   [INFO] Duplicate found: door located (592, 436), will NOT draw 
@@ -800,7 +800,7 @@
 
   [INFO] Duplicate found: door located (596, 440), will NOT draw 
 
-  [INFO] New door (F4ZHB4) located (1072, 710), will draw 
+  [INFO] New door (DCR74R) located (1072, 710), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan001-door01.png, minus_x=700, minus_y=1062, plus_x=720, plus_y=1082 
 
   [INFO] Duplicate found: door located (1073, 710), will NOT draw 
@@ -867,7 +867,7 @@
 
   [INFO] Duplicate found: door located (1079, 714), will NOT draw 
 
-  [INFO] New door (8OLUMM) located (878, 755), will draw 
+  [INFO] New door (PI4KHN) located (878, 755), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan001-door01.png, minus_x=745, minus_y=868, plus_x=765, plus_y=888 
 
   [INFO] Duplicate found: door located (877, 756), will NOT draw 
@@ -912,7 +912,7 @@
 
   [INFO] Duplicate found: door located (882, 759), will NOT draw 
 
-  [INFO] New door (QOIL0T) located (243, 405), will draw 
+  [INFO] New door (FMPPRP) located (243, 405), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan001-door01-rot90-hormir.png, minus_x=395, minus_y=233, plus_x=415, plus_y=253 
 
   [INFO] Duplicate found: door located (244, 405), will NOT draw 
@@ -977,7 +977,7 @@
 
   [INFO] Duplicate found: door located (246, 411), will NOT draw 
 
-  [INFO] New door (NF6DEE) located (912, 644), will draw 
+  [INFO] New door (BI8HVM) located (912, 644), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan001-door01-rot270.png, minus_x=634, minus_y=902, plus_x=654, plus_y=922 
 
   [INFO] Duplicate found: door located (913, 644), will NOT draw 
@@ -1010,7 +1010,7 @@
 
   [INFO] Duplicate found: door located (913, 647), will NOT draw 
 
-  [INFO] New door (2MJGDW) located (977, 643), will draw 
+  [INFO] New door (K0CFDE) located (977, 643), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan001-door01-rot270-hormir.png, minus_x=633, minus_y=967, plus_x=653, plus_y=987 
 
   [INFO] Duplicate found: door located (978, 643), will NOT draw 
@@ -1055,7 +1055,7 @@
 
   [INFO] Duplicate found: door located (980, 648), will NOT draw 
 
-  [INFO] New door (AHVGRV) located (411, 343), will draw 
+  [INFO] New door (3OGE0B) located (411, 343), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan001-door01-hormir.png, minus_x=333, minus_y=401, plus_x=353, plus_y=421 
 
   [INFO] Duplicate found: door located (410, 344), will NOT draw 
@@ -1065,23 +1065,23 @@
   [INFO] Duplicate found: door located (409, 345), will NOT draw 
 
   [INFO] Duplicate found: door located (410, 345), will NOT draw 
-  [INFO] floorplan001.jpg Found sink with reference G7HBM8 at 560,1068
-  [INFO] floorplan001.jpg Found sink with reference 989YRV at 558,837
-  [INFO] floorplan001.jpg Found shower with reference DSHNHI at 555,978
-  [INFO] floorplan001.jpg Found bathtub with reference CRI4NR at 579,1151
-  [INFO] floorplan001.jpg Found toilet with reference 9K8GP8 at 431,154
-  [INFO] floorplan001.jpg Found toilet with reference Q0PTC5 at 722,1156
-  [INFO] floorplan001.jpg Found door with reference NYUOOX at 273,486
-  [INFO] floorplan001.jpg Found door with reference 9IMWZE at 405,314
-  [INFO] floorplan001.jpg Found door with reference SRO80D at 1063,890
-  [INFO] floorplan001.jpg Found door with reference 8IT1O0 at 706,879
-  [INFO] floorplan001.jpg Found door with reference S985D7 at 436,591
-  [INFO] floorplan001.jpg Found door with reference F4ZHB4 at 710,1072
-  [INFO] floorplan001.jpg Found door with reference 8OLUMM at 755,878
-  [INFO] floorplan001.jpg Found door with reference QOIL0T at 405,243
-  [INFO] floorplan001.jpg Found door with reference NF6DEE at 644,912
-  [INFO] floorplan001.jpg Found door with reference 2MJGDW at 643,977
-  [INFO] floorplan001.jpg Found door with reference AHVGRV at 343,411
+  [INFO] floorplan001.jpg Found sink with reference 0OVONZ at 560,1068
+  [INFO] floorplan001.jpg Found sink with reference FLBGQF at 558,837
+  [INFO] floorplan001.jpg Found shower with reference ULQIDX at 555,978
+  [INFO] floorplan001.jpg Found bathtub with reference GLZJPA at 579,1151
+  [INFO] floorplan001.jpg Found toilet with reference ONJM5L at 431,154
+  [INFO] floorplan001.jpg Found toilet with reference SX8AC9 at 722,1156
+  [INFO] floorplan001.jpg Found door with reference NK6YNZ at 273,486
+  [INFO] floorplan001.jpg Found door with reference QDYYEE at 405,314
+  [INFO] floorplan001.jpg Found door with reference 9105VW at 1063,890
+  [INFO] floorplan001.jpg Found door with reference 0ZWWCR at 706,879
+  [INFO] floorplan001.jpg Found door with reference ZDB6UW at 436,591
+  [INFO] floorplan001.jpg Found door with reference DCR74R at 710,1072
+  [INFO] floorplan001.jpg Found door with reference PI4KHN at 755,878
+  [INFO] floorplan001.jpg Found door with reference FMPPRP at 405,243
+  [INFO] floorplan001.jpg Found door with reference BI8HVM at 644,912
+  [INFO] floorplan001.jpg Found door with reference K0CFDE at 643,977
+  [INFO] floorplan001.jpg Found door with reference 3OGE0B at 343,411
 [INFO] Processing floorplan floorplan066.jpg 
 [INFO] Processing floorplan floorplan034.jpg 
 [INFO] Processing floorplan floorplan069.jpeg 
@@ -1113,65 +1113,65 @@
 [ERROR] Floorplan image ./input/floorplans/floorplan040.gif not found or unsupported 
 [INFO] Processing floorplan floorplan025.jpg 
 
-  [INFO] New door (S2MJOW) located (349, 537), will draw 
+  [INFO] New door (Q4D01L) located (349, 537), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan001-door01-rot90.png, minus_x=527, minus_y=339, plus_x=547, plus_y=359 
 
   [INFO] Duplicate found: door located (349, 538), will NOT draw 
 
-  [INFO] New door (LL0FP5) located (349, 318), will draw 
+  [INFO] New door (XLLCUL) located (349, 318), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan001-door01-rot270-hormir.png, minus_x=308, minus_y=339, plus_x=328, plus_y=359 
 
   [INFO] Duplicate found: door located (349, 319), will NOT draw 
-  [INFO] floorplan025.jpg Found door with reference S2MJOW at 537,349
-  [INFO] floorplan025.jpg Found door with reference LL0FP5 at 318,349
+  [INFO] floorplan025.jpg Found door with reference Q4D01L at 537,349
+  [INFO] floorplan025.jpg Found door with reference XLLCUL at 318,349
 [ERROR] Floorplan image ./input/floorplans/floorplan023.gif not found or unsupported 
 [INFO] Processing floorplan floorplan050.png 
 [INFO] Processing floorplan floorplan027.jpg 
 
-  [INFO] New door (42279E) located (380, 135), will draw 
+  [INFO] New door (3U64A0) located (380, 135), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot180-hormir.png, minus_x=125, minus_y=370, plus_x=145, plus_y=390 
 
-  [INFO] New door (6JTB38) located (310, 136), will draw 
+  [INFO] New door (SEQZGJ) located (310, 136), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01.png, minus_x=126, minus_y=300, plus_x=146, plus_y=320 
-  [INFO] floorplan027.jpg Found door with reference 42279E at 135,380
-  [INFO] floorplan027.jpg Found door with reference 6JTB38 at 136,310
+  [INFO] floorplan027.jpg Found door with reference 3U64A0 at 135,380
+  [INFO] floorplan027.jpg Found door with reference SEQZGJ at 136,310
 [INFO] Processing floorplan floorplan004.jpg 
 [INFO] Processing floorplan floorplan005.jpg 
 [INFO] Processing floorplan floorplan063.jpg 
 [INFO] Processing floorplan floorplan003.jpg 
 
-  [INFO] New sink (K8D4ZG) located (910, 354), will draw 
+  [INFO] New sink (WV026M) located (910, 354), will draw 
   [DEBUG] New duplicate added to the list: duptype=sink, subtype=floorplan003-sink01.png, minus_x=344, minus_y=900, plus_x=364, plus_y=920 
 
   [INFO] Duplicate found: sink located (911, 354), will NOT draw 
 
-  [INFO] New sink (7H26SX) located (897, 729), will draw 
+  [INFO] New sink (IM44C0) located (897, 729), will draw 
   [DEBUG] New duplicate added to the list: duptype=sink, subtype=floorplan003-sink01.png, minus_x=719, minus_y=887, plus_x=739, plus_y=907 
 
   [INFO] Duplicate found: sink located (898, 729), will NOT draw 
 
-  [INFO] New shower (25XL0B) located (939, 729), will draw 
+  [INFO] New shower (7YLYYD) located (939, 729), will draw 
   [DEBUG] New duplicate added to the list: duptype=shower, subtype=floorplan003-shower01.png, minus_x=719, minus_y=929, plus_x=739, plus_y=949 
 
-  [INFO] New toilet (V2EO56) located (896, 779), will draw 
+  [INFO] New toilet (A36SLK) located (896, 779), will draw 
   [DEBUG] New duplicate added to the list: duptype=toilet, subtype=floorplan003-toilet01.png, minus_x=769, minus_y=886, plus_x=789, plus_y=906 
 
-  [INFO] New toilet (FVN9OM) located (949, 437), will draw 
+  [INFO] New toilet (4R87Q7) located (949, 437), will draw 
   [DEBUG] New duplicate added to the list: duptype=toilet, subtype=floorplan003-toilet01-rot180.png, minus_x=427, minus_y=939, plus_x=447, plus_y=959 
 
   [INFO] Duplicate found: toilet located (950, 437), will NOT draw 
 
-  [INFO] New door (RBGTF9) located (1063, 172), will draw 
+  [INFO] New door (GM8T9R) located (1063, 172), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot180-hormir.png, minus_x=162, minus_y=1053, plus_x=182, plus_y=1073 
 
   [INFO] Duplicate found: door located (1064, 172), will NOT draw 
 
-  [INFO] New door (0U0V7Y) located (1024, 170), will draw 
+  [INFO] New door (073UZD) located (1024, 170), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot90-hormir.png, minus_x=160, minus_y=1014, plus_x=180, plus_y=1034 
 
   [INFO] Duplicate found: door located (1025, 171), will NOT draw 
 
-  [INFO] New door (RWYW5A) located (1025, 132), will draw 
+  [INFO] New door (TBQ4MG) located (1025, 132), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot270.png, minus_x=122, minus_y=1015, plus_x=142, plus_y=1035 
 
   [INFO] Duplicate found: door located (1026, 131), will NOT draw 
@@ -1184,20 +1184,20 @@
 
   [INFO] Duplicate found: door located (1025, 172), will NOT draw 
 
-  [INFO] New door (ZTBI95) located (1064, 132), will draw 
+  [INFO] New door (Y9QRSX) located (1064, 132), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01.png, minus_x=122, minus_y=1054, plus_x=142, plus_y=1074 
-  [INFO] floorplan003.jpg Found sink with reference K8D4ZG at 354,910
-  [INFO] floorplan003.jpg Found sink with reference 7H26SX at 729,897
-  [INFO] floorplan003.jpg Found shower with reference 25XL0B at 729,939
-  [INFO] floorplan003.jpg Found toilet with reference V2EO56 at 779,896
-  [INFO] floorplan003.jpg Found toilet with reference FVN9OM at 437,949
-  [INFO] floorplan003.jpg Found door with reference RBGTF9 at 172,1063
-  [INFO] floorplan003.jpg Found door with reference 0U0V7Y at 170,1024
-  [INFO] floorplan003.jpg Found door with reference RWYW5A at 132,1025
-  [INFO] floorplan003.jpg Found door with reference ZTBI95 at 132,1064
+  [INFO] floorplan003.jpg Found sink with reference WV026M at 354,910
+  [INFO] floorplan003.jpg Found sink with reference IM44C0 at 729,897
+  [INFO] floorplan003.jpg Found shower with reference 7YLYYD at 729,939
+  [INFO] floorplan003.jpg Found toilet with reference A36SLK at 779,896
+  [INFO] floorplan003.jpg Found toilet with reference 4R87Q7 at 437,949
+  [INFO] floorplan003.jpg Found door with reference GM8T9R at 172,1063
+  [INFO] floorplan003.jpg Found door with reference 073UZD at 170,1024
+  [INFO] floorplan003.jpg Found door with reference TBQ4MG at 132,1025
+  [INFO] floorplan003.jpg Found door with reference Y9QRSX at 132,1064
 [INFO] Processing floorplan floorplan021.JPG 
 
-  [INFO] New door (CYU05O) located (61, 311), will draw 
+  [INFO] New door (MA4R0P) located (61, 311), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot180-hormir.png, minus_x=301, minus_y=51, plus_x=321, plus_y=71 
 
   [INFO] Duplicate found: door located (60, 312), will NOT draw 
@@ -1206,24 +1206,24 @@
 
   [INFO] Duplicate found: door located (60, 313), will NOT draw 
 
-  [INFO] New door (BICPH3) located (164, 260), will draw 
+  [INFO] New door (6U781R) located (164, 260), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot270.png, minus_x=250, minus_y=154, plus_x=270, plus_y=174 
 
   [INFO] Duplicate found: door located (164, 261), will NOT draw 
 
-  [INFO] New door (YQA7YI) located (274, 317), will draw 
+  [INFO] New door (HRTRMQ) located (274, 317), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot90.png, minus_x=307, minus_y=264, plus_x=327, plus_y=284 
 
   [INFO] Duplicate found: door located (273, 318), will NOT draw 
 
-  [INFO] New door (WZ9G3V) located (273, 260), will draw 
+  [INFO] New door (JS4ZZZ) located (273, 260), will draw 
   [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot270-hormir.png, minus_x=250, minus_y=263, plus_x=270, plus_y=283 
 
   [INFO] Duplicate found: door located (274, 260), will NOT draw 
 
   [INFO] Duplicate found: door located (274, 261), will NOT draw 
-  [INFO] floorplan021.JPG Found door with reference CYU05O at 311,61
-  [INFO] floorplan021.JPG Found door with reference BICPH3 at 260,164
-  [INFO] floorplan021.JPG Found door with reference YQA7YI at 317,274
-  [INFO] floorplan021.JPG Found door with reference WZ9G3V at 260,273
+  [INFO] floorplan021.JPG Found door with reference MA4R0P at 311,61
+  [INFO] floorplan021.JPG Found door with reference 6U781R at 260,164
+  [INFO] floorplan021.JPG Found door with reference HRTRMQ at 317,274
+  [INFO] floorplan021.JPG Found door with reference JS4ZZZ at 260,273
 [INFO] Processing floorplan floorplan030.jpg 
