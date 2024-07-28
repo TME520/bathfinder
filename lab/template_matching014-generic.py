@@ -135,7 +135,7 @@ for (dir_path, dir_names, file_names) in os.walk(floorplans_folder):
     for current_file in file_names:
       writeToFile(f'{output_csv}inventory.csv', 'a', f'floorplan,{current_file}\n')
 floorplans_count = len(input_floorplans_list)
-print(input_floorplans_list)
+# print(input_floorplans_list)
 
 print('[DEBUG] Listing bathtubs templates')
 bathtubs_templates_list = []
@@ -143,7 +143,7 @@ for (dir_path, dir_names, file_names) in os.walk(bathtubs_folder):
     bathtubs_templates_list.extend(file_names)
     for current_file in file_names:
       writeToFile(f'{output_csv}inventory.csv', 'a', f'bathtub,{current_file}\n')
-print(bathtubs_templates_list)
+# print(bathtubs_templates_list)
 
 print('[DEBUG] Listing doors templates')
 doors_templates_list = []
@@ -151,7 +151,7 @@ for (dir_path, dir_names, file_names) in os.walk(doors_folder):
     doors_templates_list.extend(file_names)
     for current_file in file_names:
       writeToFile(f'{output_csv}inventory.csv', 'a', f'door,{current_file}\n')
-print(doors_templates_list)
+# print(doors_templates_list)
 
 print('[DEBUG] Listing showers templates')
 showers_templates_list = []
@@ -159,7 +159,7 @@ for (dir_path, dir_names, file_names) in os.walk(showers_folder):
     showers_templates_list.extend(file_names)
     for current_file in file_names:
       writeToFile(f'{output_csv}inventory.csv', 'a', f'shower,{current_file}\n')
-print(showers_templates_list)
+# print(showers_templates_list)
 
 print('[DEBUG] Listing sinks templates')
 sinks_templates_list = []
@@ -167,7 +167,7 @@ for (dir_path, dir_names, file_names) in os.walk(sinks_folder):
     sinks_templates_list.extend(file_names)
     for current_file in file_names:
       writeToFile(f'{output_csv}inventory.csv', 'a', f'sink,{current_file}\n')
-print(sinks_templates_list)
+# print(sinks_templates_list)
 
 print('[DEBUG] Listing toilets templates')
 toilets_templates_list = []
@@ -175,7 +175,7 @@ for (dir_path, dir_names, file_names) in os.walk(toilets_folder):
     toilets_templates_list.extend(file_names)
     for current_file in file_names:
       writeToFile(f'{output_csv}inventory.csv', 'a', f'toilet,{current_file}\n')
-print(toilets_templates_list)
+# print(toilets_templates_list)
 
 # Process floorplans one by one
 for current_floorplan in input_floorplans_list:
@@ -243,6 +243,12 @@ for current_floorplan in input_floorplans_list:
         spotitems(floorplan_rgb, floorplan_gray, door, door_w, door_h, 'door', current_door)
     if (len(detected_items)>0):
       drawdetecteditems()
+      bathtubs_count = sum(detected_items[current_item]['type'] == 'bathtub' for current_item in detected_items)
+      print(f'  [INFO] Found {bathtubs_count} bathtub(s)')
+      showers_count = sum(detected_items[current_item]['type'] == 'shower' for current_item in detected_items)
+      print(f'  [INFO] Found {showers_count} shower(s)')
+      sinks_count = sum(detected_items[current_item]['type'] == 'sink' for current_item in detected_items)
+      print(f'  [INFO] Found {sinks_count} sink(s)')
       print(f'  [INFO] Writing result file {output_image}{current_floorplan}-detected_items.png')
       cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
       print(f'  [INFO] Listing found items in CSV file {output_csv}{current_floorplan}-detected_items.csv')
@@ -256,6 +262,9 @@ for current_floorplan in input_floorplans_list:
         writeToFile(f'{output_log}report.html', 'a', f"<LI>1 x {detected_items[current_item]['type']} ({current_item})</LI>")
       writeToFile(f'{output_log}report.html', 'a', f'</UL>\n')
       writeToFile(f'{output_log}report.html', 'a', f'<IMG SRC="../image/{current_floorplan}-detected_items.png"></BR>\n')
+      if ((bathtubs_count>0) and (showers_count>0) and (sinks_count>0)):
+        print('  [INFO] Analysing items found to locate golden bathroom')
+        writeToFile(f'{output_log}report.txt', 'a', f'/!\ Found enough items to look for the golden bathroom!\n')
     else:
       writeToFile(f'{output_log}report.txt', 'a', f'- No items detected for that floorplan\n')
       writeToFile(f'{output_log}report.html', 'a', f'<B><FONT COLOR="red">No items detected for that floorplan</FONT></B></BR>')
