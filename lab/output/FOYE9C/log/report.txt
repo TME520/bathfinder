@@ -1,0 +1,61 @@
+Bathfinder report for run (FOYE9C)
+
+# floorplan055.png - No items detected for that floorplan
+
+# floorplan068.png - No items detected for that floorplan
+
+# floorplan064.jpg - No items detected for that floorplan
+
+# floorplan071.png - No items detected for that floorplan
+
+# floorplan057.png - No items detected for that floorplan
+
+# floorplan028.jpg - No items detected for that floorplan
+
+# floorplan061.png - No items detected for that floorplan
+
+# floorplan054.png - No items detected for that floorplan
+
+# floorplan029.jpg - No items detected for that floorplan
+
+# floorplan014.png - No items detected for that floorplan
+
+# floorplan032.jpg - No items detected for that floorplan
+
+# floorplan042.jpg - No items detected for that floorplan
+
+# floorplan033.jpg - No items detected for that floorplan
+
+# floorplan016.jpg - No items detected for that floorplan
+
+# floorplan052.png - No items detected for that floorplan
+
+# floorplan002.jpg 
+- 1 x sink (CL1OQB)
+
+- 1 x sink (0I069S)
+
+- 1 x shower (MJK6C5)
+
+- 1 x bathtub (2DAG4Y)
+
+- 1 x toilet (6K6Q29)
+
+- 1 x door (C3BYTJ)
+
+- 1 x door (6ZMD7E)
+
+- 1 x door (QLETZH)
+
+- 1 x door (WB9T8W)
+
+- 1 x door (8Y22YL)
+
+- 1 x door (K5VBYT)
+/!\ Found enough items to look for the golden bathroom!
+
+# floorplan060.png - No items detected for that floorplan
+
+# floorplan012.jpg - No items detected for that floorplan
+
+# floorplan018.png 

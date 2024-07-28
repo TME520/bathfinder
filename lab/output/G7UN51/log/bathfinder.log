@@ -1,0 +1,77 @@
+[INFO] New run (G7UN51)
+[INFO] Processing floorplan 1/72 (floorplan022.gif) 
+[ERROR] Floorplan image ./input/floorplans/floorplan022.gif not found or unsupported 
+[INFO] Processing floorplan 2/72 (floorplan055.png) 
+[INFO] Processing floorplan 3/72 (floorplan068.png) 
+[INFO] Processing floorplan 4/72 (floorplan064.jpg) 
+[INFO] Processing floorplan 5/72 (floorplan071.png) 
+[INFO] Processing floorplan 6/72 (floorplan067.gif) 
+[ERROR] Floorplan image ./input/floorplans/floorplan067.gif not found or unsupported 
+[INFO] Processing floorplan 7/72 (floorplan057.png) 
+[INFO] Processing floorplan 8/72 (floorplan028.jpg) 
+[INFO] Processing floorplan 9/72 (floorplan061.png) 
+[INFO] Processing floorplan 10/72 (floorplan054.png) 
+[INFO] Processing floorplan 11/72 (floorplan029.jpg) 
+[INFO] Processing floorplan 12/72 (floorplan014.png) 
+[INFO] Processing floorplan 13/72 (floorplan032.jpg) 
+[INFO] Processing floorplan 14/72 (floorplan042.jpg) 
+[INFO] Processing floorplan 15/72 (floorplan033.jpg) 
+[INFO] Processing floorplan 16/72 (floorplan016.jpg) 
+[INFO] Processing floorplan 17/72 (floorplan052.png) 
+[INFO] Processing floorplan 18/72 (floorplan002.jpg) 
+
+  [INFO] New sink (MZJIME) located (132, 303), will draw 
+  [DEBUG] New duplicate added to the list: duptype=sink, subtype=floorplan002-sink02-rot180.png, minus_x=293, minus_y=122, plus_x=313, plus_y=142 
+
+  [INFO] New sink (OKQJ6K) located (480, 372), will draw 
+  [DEBUG] New duplicate added to the list: duptype=sink, subtype=floorplan002-sink01.png, minus_x=362, minus_y=470, plus_x=382, plus_y=490 
+
+  [INFO] Duplicate found: sink located (132, 303), will NOT draw 
+
+  [INFO] New shower (YXB75B) located (460, 417), will draw 
+  [DEBUG] New duplicate added to the list: duptype=shower, subtype=floorplan002-shower01.png, minus_x=407, minus_y=450, plus_x=427, plus_y=470 
+
+  [INFO] New bathtub (6PRO7J) located (351, 320), will draw 
+  [DEBUG] New duplicate added to the list: duptype=bathtub, subtype=floorplan002-bathtub01.png, minus_x=310, minus_y=341, plus_x=330, plus_y=361 
+
+  [INFO] New toilet (8JH0ER) located (471, 332), will draw 
+  [DEBUG] New duplicate added to the list: duptype=toilet, subtype=floorplan002-toilet01.png, minus_x=322, minus_y=461, plus_x=342, plus_y=481 
+
+  [INFO] New door (OUD3OH) located (536, 319), will draw 
+  [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot180-hormir.png, minus_x=309, minus_y=526, plus_x=329, plus_y=546 
+
+  [INFO] New door (WCKGJ6) located (173, 392), will draw 
+  [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot90-hormir.png, minus_x=382, minus_y=163, plus_x=402, plus_y=183 
+
+  [INFO] New door (X8XLPN) located (173, 336), will draw 
+  [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot270.png, minus_x=326, minus_y=163, plus_x=346, plus_y=183 
+
+  [INFO] Duplicate found: door located (174, 336), will NOT draw 
+
+  [INFO] New door (YKNB0N) located (512, 203), will draw 
+  [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot270-hormir.png, minus_x=193, minus_y=502, plus_x=213, plus_y=522 
+
+  [INFO] Duplicate found: door located (511, 203), will NOT draw 
+
+  [INFO] New door (HYUYD7) located (624, 203), will draw 
+  [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01.png, minus_x=193, minus_y=614, plus_x=213, plus_y=634 
+
+  [INFO] New door (LIMOV7) located (635, 263), will draw 
+  [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door02.png, minus_x=253, minus_y=625, plus_x=273, plus_y=645 
+  [INFO] floorplan002.jpg Found sink with reference MZJIME at 303,132
+  [INFO] floorplan002.jpg Found sink with reference OKQJ6K at 372,480
+  [INFO] floorplan002.jpg Found shower with reference YXB75B at 417,460
+  [INFO] floorplan002.jpg Found bathtub with reference 6PRO7J at 320,351
+  [INFO] floorplan002.jpg Found toilet with reference 8JH0ER at 332,471
+  [INFO] floorplan002.jpg Found door with reference OUD3OH at 319,536
+  [INFO] floorplan002.jpg Found door with reference WCKGJ6 at 392,173
+  [INFO] floorplan002.jpg Found door with reference X8XLPN at 336,173
+  [INFO] floorplan002.jpg Found door with reference YKNB0N at 203,512
+  [INFO] floorplan002.jpg Found door with reference HYUYD7 at 203,624
+  [INFO] floorplan002.jpg Found door with reference LIMOV7 at 263,635
+[INFO] Processing floorplan 19/72 (floorplan060.png) 
+[INFO] Processing floorplan 20/72 (floorplan012.jpg) 
+[INFO] Processing floorplan 21/72 (floorplan018.png) 
+[INFO] Processing floorplan 22/72 (floorplan046.jpg) 
+[INFO] Processing floorplan 23/72 (floorplan049.jpg) 
+[INFO] Processing floorplan 24/72 (floorplan008.jpg) 

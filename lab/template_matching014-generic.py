@@ -243,6 +243,22 @@ for current_floorplan in input_floorplans_list:
         spotitems(floorplan_rgb, floorplan_gray, door, door_w, door_h, 'door', current_door)
     if (len(detected_items)>0):
       drawdetecteditems()
+      sinks_list = {}
+      showers_list = {}
+      bathtubs_list = {}
+      for current_item in detected_items:
+        if (detected_items[current_item]['type'] == 'bathtub'):
+          bathtubs_list[current_item] = { 'x':detected_items[current_item]['x'], 'y':detected_items[current_item]['y'], 'height':detected_items[current_item]['height'], 'width':detected_items[current_item]['width'] }
+        if (detected_items[current_item]['type'] == 'shower'):
+          showers_list[current_item] = { 'x':detected_items[current_item]['x'], 'y':detected_items[current_item]['y'], 'height':detected_items[current_item]['height'], 'width':detected_items[current_item]['width'] }
+        if (detected_items[current_item]['type'] == 'sink'):
+          sinks_list[current_item] = { 'x':detected_items[current_item]['x'], 'y':detected_items[current_item]['y'], 'height':detected_items[current_item]['height'], 'width':detected_items[current_item]['width'] }
+      for current_bathtub in bathtubs_list:
+        print(f'[DEBUG] bathtub: {current_bathtub}')
+      for current_shower in showers_list:
+        print(f'[DEBUG] shower: {current_shower}')
+      for current_sink in sinks_list:
+        print(f'[DEBUG] sink: {current_sink}')
       bathtubs_count = sum(detected_items[current_item]['type'] == 'bathtub' for current_item in detected_items)
       print(f'  [INFO] Found {bathtubs_count} bathtub(s)')
       showers_count = sum(detected_items[current_item]['type'] == 'shower' for current_item in detected_items)

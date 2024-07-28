@@ -1,0 +1,60 @@
+[INFO] New run (FFK628)
+[INFO] Processing floorplan 1/72 (floorplan022.gif) 
+[ERROR] Floorplan image ./input/floorplans/floorplan022.gif not found or unsupported 
+[INFO] Processing floorplan 2/72 (floorplan055.png) 
+[INFO] Processing floorplan 3/72 (floorplan068.png) 
+[INFO] Processing floorplan 4/72 (floorplan064.jpg) 
+[INFO] Processing floorplan 5/72 (floorplan071.png) 
+[INFO] Processing floorplan 6/72 (floorplan067.gif) 
+[ERROR] Floorplan image ./input/floorplans/floorplan067.gif not found or unsupported 
+[INFO] Processing floorplan 7/72 (floorplan057.png) 
+[INFO] Processing floorplan 8/72 (floorplan028.jpg) 
+[INFO] Processing floorplan 9/72 (floorplan061.png) 
+[INFO] Processing floorplan 10/72 (floorplan054.png) 
+[INFO] Processing floorplan 11/72 (floorplan029.jpg) 
+[INFO] Processing floorplan 12/72 (floorplan014.png) 
+[INFO] Processing floorplan 13/72 (floorplan032.jpg) 
+[INFO] Processing floorplan 14/72 (floorplan042.jpg) 
+[INFO] Processing floorplan 15/72 (floorplan033.jpg) 
+[INFO] Processing floorplan 16/72 (floorplan016.jpg) 
+[INFO] Processing floorplan 17/72 (floorplan052.png) 
+[INFO] Processing floorplan 18/72 (floorplan002.jpg) 
+
+  [INFO] New sink (94YHOC) located (132, 303), will draw 
+  [DEBUG] New duplicate added to the list: duptype=sink, subtype=floorplan002-sink02-rot180.png, minus_x=293, minus_y=122, plus_x=313, plus_y=142 
+
+  [INFO] New sink (X6E2GL) located (480, 372), will draw 
+  [DEBUG] New duplicate added to the list: duptype=sink, subtype=floorplan002-sink01.png, minus_x=362, minus_y=470, plus_x=382, plus_y=490 
+
+  [INFO] Duplicate found: sink located (132, 303), will NOT draw 
+
+  [INFO] New shower (BK6ABH) located (460, 417), will draw 
+  [DEBUG] New duplicate added to the list: duptype=shower, subtype=floorplan002-shower01.png, minus_x=407, minus_y=450, plus_x=427, plus_y=470 
+
+  [INFO] New bathtub (D4F6LY) located (351, 320), will draw 
+  [DEBUG] New duplicate added to the list: duptype=bathtub, subtype=floorplan002-bathtub01.png, minus_x=310, minus_y=341, plus_x=330, plus_y=361 
+
+  [INFO] New toilet (Y3WH7A) located (471, 332), will draw 
+  [DEBUG] New duplicate added to the list: duptype=toilet, subtype=floorplan002-toilet01.png, minus_x=322, minus_y=461, plus_x=342, plus_y=481 
+
+  [INFO] New door (CCEB39) located (536, 319), will draw 
+  [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot180-hormir.png, minus_x=309, minus_y=526, plus_x=329, plus_y=546 
+
+  [INFO] New door (NM49NF) located (173, 392), will draw 
+  [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot90-hormir.png, minus_x=382, minus_y=163, plus_x=402, plus_y=183 
+
+  [INFO] New door (S9PTRT) located (173, 336), will draw 
+  [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot270.png, minus_x=326, minus_y=163, plus_x=346, plus_y=183 
+
+  [INFO] Duplicate found: door located (174, 336), will NOT draw 
+
+  [INFO] New door (CR5MMI) located (512, 203), will draw 
+  [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01-rot270-hormir.png, minus_x=193, minus_y=502, plus_x=213, plus_y=522 
+
+  [INFO] Duplicate found: door located (511, 203), will NOT draw 
+
+  [INFO] New door (P1YFRH) located (624, 203), will draw 
+  [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door01.png, minus_x=193, minus_y=614, plus_x=213, plus_y=634 
+
+  [INFO] New door (I7QRGZ) located (635, 263), will draw 
+  [DEBUG] New duplicate added to the list: duptype=door, subtype=floorplan002-door02.png, minus_x=253, minus_y=625, plus_x=273, plus_y=645 
