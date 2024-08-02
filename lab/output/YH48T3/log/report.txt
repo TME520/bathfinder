@@ -1,0 +1,223 @@
+Bathfinder report for run (YH48T3)
+
+# floorplan066.jpg - No items detected for that floorplan
+
+# floorplan008.jpg - No items detected for that floorplan
+
+# floorplan056.png - No items detected for that floorplan
+
+# floorplan053.png - No items detected for that floorplan
+
+# floorplan037.jpg - No items detected for that floorplan
+
+# floorplan054.png - No items detected for that floorplan
+
+# floorplan030.jpg - No items detected for that floorplan
+
+# floorplan062.jpg - No items detected for that floorplan
+
+# floorplan041.jpg - No items detected for that floorplan
+
+# floorplan043.png - No items detected for that floorplan
+
+# floorplan024.png - No items detected for that floorplan
+
+# floorplan068.png - No items detected for that floorplan
+
+# floorplan002.jpg 
+- 1 x sink (T990R3)
+
+- 1 x sink (JZ3H4H)
+
+- 1 x shower (QJCI6N)
+
+- 1 x bathtub (2Z6RPL)
+
+- 1 x toilet (Y8PH3Y)
+
+- 1 x door (PNOFOR)
+
+- 1 x door (J2MQD9)
+
+- 1 x door (T31CO5)
+
+- 1 x door (50O13W)
+
+- 1 x door (6QHBAM)
+
+- 1 x door (OJSURW)
+/!\ Found enough items to look for the golden bathroom!
+
+# floorplan012.jpg - No items detected for that floorplan
+
+# floorplan058.png - No items detected for that floorplan
+
+# floorplan032.jpg - No items detected for that floorplan
+
+# floorplan017.jpg - No items detected for that floorplan
+
+# floorplan034.jpg - No items detected for that floorplan
+
+# floorplan042.jpg - No items detected for that floorplan
+
+# floorplan014.png - No items detected for that floorplan
+
+# floorplan060.png - No items detected for that floorplan
+
+# floorplan047.jpg - No items detected for that floorplan
+
+# floorplan046.jpg - No items detected for that floorplan
+
+# floorplan013.jpg - No items detected for that floorplan
+
+# floorplan029.jpg - No items detected for that floorplan
+
+# floorplan038.jpg - No items detected for that floorplan
+
+# floorplan045.jpg - No items detected for that floorplan
+
+# floorplan016.jpg - No items detected for that floorplan
+
+# floorplan028.jpg - No items detected for that floorplan
+
+# floorplan006.jpg - No items detected for that floorplan
+
+# floorplan015.jpg - No items detected for that floorplan
+
+# floorplan051.png - No items detected for that floorplan
+
+# floorplan018.png - No items detected for that floorplan
+
+# floorplan057.png - No items detected for that floorplan
+
+# floorplan050.png - No items detected for that floorplan
+
+# floorplan009.jpg - No items detected for that floorplan
+
+# floorplan048.jpg - No items detected for that floorplan
+
+# floorplan059.png - No items detected for that floorplan
+
+# floorplan025.jpg 
+- 1 x door (45HJAS)
+
+- 1 x door (SN5UHN)
+
+# floorplan055.png - No items detected for that floorplan
+
+# floorplan044.png - No items detected for that floorplan
+
+# floorplan001.jpg 
+- 1 x sink (89IAFS)
+
+- 1 x sink (RGYTHK)
+
+- 1 x shower (XLPL4D)
+
+- 1 x bathtub (1QF21S)
+
+- 1 x toilet (ITMWF9)
+
+- 1 x toilet (YWA3VX)
+
+- 1 x door (6VXHT7)
+
+- 1 x door (9XP0ZK)
+
+- 1 x door (ZRQX1L)
+
+- 1 x door (HTR1KK)
+
+- 1 x door (SC72VL)
+
+- 1 x door (3RX4MN)
+
+- 1 x door (LWEDJY)
+
+- 1 x door (5PS6PK)
+
+- 1 x door (STZ85U)
+
+- 1 x door (2ZN19C)
+
+- 1 x door (8JKNUC)
+/!\ Found enough items to look for the golden bathroom!
+
+# floorplan007.png - No items detected for that floorplan
+
+# floorplan011.jpg - No items detected for that floorplan
+
+# floorplan004.jpg - No items detected for that floorplan
+
+# floorplan021.JPG 
+- 1 x door (Z0Z7XS)
+
+- 1 x door (N36WPD)
+
+- 1 x door (FK2JUI)
+
+- 1 x door (R4H67X)
+
+# floorplan065.jpeg 
+- 1 x door (8BNLK0)
+
+- 1 x door (YRT9G9)
+
+# floorplan019.jpg - No items detected for that floorplan
+
+# floorplan031.jpg - No items detected for that floorplan
+
+# floorplan036.jpg - No items detected for that floorplan
+
+# floorplan064.jpg - No items detected for that floorplan
+
+# floorplan049.jpg - No items detected for that floorplan
+
+# floorplan071.png - No items detected for that floorplan
+
+# floorplan010.jpg - No items detected for that floorplan
+
+# floorplan063.jpg - No items detected for that floorplan
+
+# floorplan026.png - No items detected for that floorplan
+
+# floorplan033.jpg - No items detected for that floorplan
+
+# floorplan069.jpeg - No items detected for that floorplan
+
+# floorplan035.jpg - No items detected for that floorplan
+
+# floorplan061.png - No items detected for that floorplan
+
+# floorplan005.jpg - No items detected for that floorplan
+
+# floorplan070.jpeg - No items detected for that floorplan
+
+# floorplan052.png - No items detected for that floorplan
+
+# floorplan007.jpg - No items detected for that floorplan
+
+# floorplan003.jpg 
+- 1 x sink (AWTFQ1)
+
+- 1 x sink (LL0EO9)
+
+- 1 x shower (D856EF)
+
+- 1 x toilet (2ZHDUF)
+
+- 1 x toilet (5ZNT1F)
+
+- 1 x door (HDX8VS)
+
+- 1 x door (NA88DG)
+
+- 1 x door (RKBPEG)
+
+- 1 x door (6K59DR)
+
+# floorplan027.jpg 
+- 1 x door (0EFTA2)
+
+- 1 x door (CTOL5W)
+
