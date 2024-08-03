@@ -188,6 +188,8 @@ for current_floorplan in input_floorplans_list:
     print(f'  [ERROR] Floorplan image {floorplans_folder}{current_floorplan} not found or unsupported')
     writeToFile(f'{output_log}bathfinder.log', 'a', f'[ERROR] Floorplan image {floorplans_folder}{current_floorplan} not found or unsupported \n')
   else:
+    # cv.rectangle(floorplan_rgb, (10, 10), (200, 200), (166,166,166), 4)
+    # cv.imwrite(f'{output_image}{current_floorplan}-coordinates_check.png',floorplan_rgb)
     writeToFile(f'{output_log}report.html', 'a', f'<H2>{current_floorplan}</H2>\n')
     writeToFile(f'{output_log}report.txt', 'a', f'# {current_floorplan} ')
     floorplan_gray = cv.cvtColor(floorplan_rgb, cv.COLOR_BGR2GRAY)
@@ -253,12 +255,6 @@ for current_floorplan in input_floorplans_list:
           showers_list[current_item] = { 'x':detected_items[current_item]['x'], 'y':detected_items[current_item]['y'], 'height':detected_items[current_item]['height'], 'width':detected_items[current_item]['width'] }
         if (detected_items[current_item]['type'] == 'sink'):
           sinks_list[current_item] = { 'x':detected_items[current_item]['x'], 'y':detected_items[current_item]['y'], 'height':detected_items[current_item]['height'], 'width':detected_items[current_item]['width'] }
-      for current_bathtub in bathtubs_list:
-        print(f'[DEBUG] bathtub: {current_bathtub}')
-      # for current_shower in showers_list:
-        # print(f'[DEBUG] shower: {current_shower}')
-      # for current_sink in sinks_list:
-        # print(f'[DEBUG] sink: {current_sink}')
       bathtubs_count = sum(detected_items[current_item]['type'] == 'bathtub' for current_item in detected_items)
       print(f'  [INFO] Found {bathtubs_count} bathtub(s)')
       showers_count = sum(detected_items[current_item]['type'] == 'shower' for current_item in detected_items)
@@ -305,16 +301,23 @@ for current_floorplan in input_floorplans_list:
             if (shower_x > left_border) and (shower_x < right_border) and (shower_y > top_border) and (shower_y < bottom_border):
               print('    [INFO] North type bathroom configuration found')
               writeToFile(f'{output_log}report.txt', 'a', f"\n- Potential North type bathroom; L:{left_border} | X:{shower_x} | R:{right_border} / T:{top_border} | Y:{shower_y} | B:{bottom_border}")
+              # cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (166,166,166), 4)
+              cv.rectangle(floorplan_rgb, (top_border, left_border), (bottom_border, right_border), (166,166,166), 4)
+              cv.putText(floorplan_rgb, f'N', (left_border, top_border), cv.FONT_HERSHEY_PLAIN, 1, (166,166,166), 1, cv.LINE_AA)
+              cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
             print('  [DEBUG] Looking for South config')
             left_border = sink_x + sink_width + shower_width
             right_border = sink_x
-            top_border = sink_y - sink_height
+            top_border = sink_y - shower_height
             bottom_border = sink_y + sink_height
             print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
             print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
             if (shower_x > left_border) and (shower_x < right_border) and (shower_y > top_border) and (shower_y < bottom_border):
               print('    [INFO] South type bathroom configuration found')
               writeToFile(f'{output_log}report.txt', 'a', f"\n- Potential South type bathroom; L:{left_border} | X:{shower_x} | R:{right_border} / T:{top_border} | Y:{shower_y} | B:{bottom_border}")
+              cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (155,155,155), 4)
+              cv.putText(floorplan_rgb, f'S', (left_border, top_border), cv.FONT_HERSHEY_PLAIN, 1, (155,155,155), 1, cv.LINE_AA)
+              cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
             print('  [DEBUG] Looking for East config')
             left_border = sink_x - shower_width
             right_border = sink_x + sink_width
@@ -325,6 +328,9 @@ for current_floorplan in input_floorplans_list:
             if (shower_x > left_border) and (shower_x < right_border) and (shower_y > top_border) and (shower_y < bottom_border):
               print('    [INFO] East type bathroom configuration found')
               writeToFile(f'{output_log}report.txt', 'a', f"\n- Potential East type bathroom; L:{left_border} | X:{shower_x} | R:{right_border} / T:{top_border} | Y:{shower_y} | B:{bottom_border}")
+              cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (144,144,144), 4)
+              cv.putText(floorplan_rgb, f'E', (left_border, top_border), cv.FONT_HERSHEY_PLAIN, 1, (144,144,144), 1, cv.LINE_AA)
+              cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
             print('  [DEBUG] Looking for West config')
             left_border = sink_x - sink_width
             right_border = sink_x + sink_width + shower_width
@@ -335,6 +341,9 @@ for current_floorplan in input_floorplans_list:
             if (shower_x > left_border) and (shower_x < right_border) and (shower_y > top_border) and (shower_y < bottom_border):
               print('    [INFO] West type bathroom configuration found')
               writeToFile(f'{output_log}report.txt', 'a', f"\n- Potential West type bathroom; L:{left_border} | X:{shower_x} | R:{right_border} / T:{top_border} | Y:{shower_y} | B:{bottom_border}")
+              cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (133,133,133), 4)
+              cv.putText(floorplan_rgb, f'W', (left_border, top_border), cv.FONT_HERSHEY_PLAIN, 1, (133,133,133), 1, cv.LINE_AA)
+              cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
     else:
       writeToFile(f'{output_log}report.txt', 'a', f'- No items detected for that floorplan\n')
       writeToFile(f'{output_log}report.html', 'a', f'<B><FONT COLOR="red">No items detected for that floorplan</FONT></B></BR>')
