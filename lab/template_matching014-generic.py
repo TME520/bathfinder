@@ -255,10 +255,10 @@ for current_floorplan in input_floorplans_list:
           sinks_list[current_item] = { 'x':detected_items[current_item]['x'], 'y':detected_items[current_item]['y'], 'height':detected_items[current_item]['height'], 'width':detected_items[current_item]['width'] }
       for current_bathtub in bathtubs_list:
         print(f'[DEBUG] bathtub: {current_bathtub}')
-      for current_shower in showers_list:
-        print(f'[DEBUG] shower: {current_shower}')
-      for current_sink in sinks_list:
-        print(f'[DEBUG] sink: {current_sink}')
+      # for current_shower in showers_list:
+        # print(f'[DEBUG] shower: {current_shower}')
+      # for current_sink in sinks_list:
+        # print(f'[DEBUG] sink: {current_sink}')
       bathtubs_count = sum(detected_items[current_item]['type'] == 'bathtub' for current_item in detected_items)
       print(f'  [INFO] Found {bathtubs_count} bathtub(s)')
       showers_count = sum(detected_items[current_item]['type'] == 'shower' for current_item in detected_items)
@@ -274,13 +274,36 @@ for current_floorplan in input_floorplans_list:
         print(f"  [DEBUG] Reference: {current_item} - Type: {detected_items[current_item]['type']} - X: {detected_items[current_item]['x']} - Y: {detected_items[current_item]['y']}")
         writeToFile(f'{output_log}bathfinder.log', 'a', f'  [INFO] {current_floorplan} Found {detected_items[current_item]["type"]} with reference {current_item} at {detected_items[current_item]["x"]},{detected_items[current_item]["y"]}\n')
         writeToFile(f'{output_csv}{current_floorplan}-detected_items.csv', 'a', f'{current_item},{detected_items[current_item]["type"]},{detected_items[current_item]["x"]},{detected_items[current_item]["y"]}\n')
-        writeToFile(f'{output_log}report.txt', 'a', f"\n- 1 x {detected_items[current_item]['type']} ({current_item})\n")
+        writeToFile(f'{output_log}report.txt', 'a', f"\n- 1 x {detected_items[current_item]['type']} ({current_item})")
         writeToFile(f'{output_log}report.html', 'a', f"<LI>1 x {detected_items[current_item]['type']} ({current_item})</LI>")
       writeToFile(f'{output_log}report.html', 'a', f'</UL>\n')
       writeToFile(f'{output_log}report.html', 'a', f'<IMG SRC="../image/{current_floorplan}-detected_items.png"></BR>\n')
       if ((bathtubs_count>0) and (showers_count>0) and (sinks_count>0)):
         print('  [INFO] Analysing items found to locate golden bathroom')
         writeToFile(f'{output_log}report.txt', 'a', f'/!\ Found enough items to look for the golden bathroom!\n')
+        for current_sink in sinks_list:
+          # print(f"  [DEBUG] sink: {current_sink} X:{detected_items[current_sink]['x']}")
+          # print(f"  [DEBUG] sink: {current_sink} Y:{detected_items[current_sink]['y']}")
+          # print(f"  [DEBUG] sink: {current_sink} H:{detected_items[current_sink]['height']}")
+          # print(f"  [DEBUG] sink: {current_sink} W:{detected_items[current_sink]['width']}")
+          sink_x = detected_items[current_sink]['x']
+          sink_y = detected_items[current_sink]['y']
+          sink_height = detected_items[current_sink]['height']
+          sink_width = detected_items[current_sink]['width']
+          for current_shower in showers_list:
+            shower_x = detected_items[current_shower]['x']
+            shower_y = detected_items[current_shower]['y']
+            shower_height = detected_items[current_shower]['height']
+            shower_width = detected_items[current_shower]['width']
+            print('  [DEBUG] Looking for North config')
+            left_border = sink_x + sink_width
+            right_border = sink_x + sink_width + shower_width
+            top_border = sink_y - sink_height
+            bottom_border = sink_y + sink_height
+            print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
+            print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
+            if (shower_x > left_border) and (shower_x < right_border) and (shower_y > top_border) and (shower_y < bottom_border):
+              print('    [INFO] North type bathroom configuration found')
     else:
       writeToFile(f'{output_log}report.txt', 'a', f'- No items detected for that floorplan\n')
       writeToFile(f'{output_log}report.html', 'a', f'<B><FONT COLOR="red">No items detected for that floorplan</FONT></B></BR>')
