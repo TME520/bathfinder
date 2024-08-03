@@ -1,0 +1,28 @@
+- North
+
+left_border = sink_x + sink_width
+right_border = sink_x + sink_width + shower_width
+top_border = sink_y - sink_height
+bottom_border = sink_y + sink_height
+
+- South
+
+left_border = sink_x + sink_width + shower_width
+right_border = sink_x
+top_border = sink_y - sink_height
+bottom_border = sink_y + sink_height
+
+- East
+
+left_border = sink_x - shower_width
+right_border = sink_x + sink_width
+top_border = sink_x + sink_height
+bottom_border = sink_x + sink_height + shower_height
+
+- West
+
+left_border = sink_x - sink_width
+right_border = sink_x + sink_width + shower_width
+top_border = sink_y - sink_height - shower_height
+bottom_border = sink_y + sink_height
+

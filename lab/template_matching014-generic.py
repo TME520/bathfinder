@@ -304,6 +304,37 @@ for current_floorplan in input_floorplans_list:
             print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
             if (shower_x > left_border) and (shower_x < right_border) and (shower_y > top_border) and (shower_y < bottom_border):
               print('    [INFO] North type bathroom configuration found')
+              writeToFile(f'{output_log}report.txt', 'a', f"\n- Potential North type bathroom; L:{left_border} | X:{shower_x} | R:{right_border} / T:{top_border} | Y:{shower_y} | B:{bottom_border}")
+            print('  [DEBUG] Looking for South config')
+            left_border = sink_x + sink_width + shower_width
+            right_border = sink_x
+            top_border = sink_y - sink_height
+            bottom_border = sink_y + sink_height
+            print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
+            print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
+            if (shower_x > left_border) and (shower_x < right_border) and (shower_y > top_border) and (shower_y < bottom_border):
+              print('    [INFO] South type bathroom configuration found')
+              writeToFile(f'{output_log}report.txt', 'a', f"\n- Potential South type bathroom; L:{left_border} | X:{shower_x} | R:{right_border} / T:{top_border} | Y:{shower_y} | B:{bottom_border}")
+            print('  [DEBUG] Looking for East config')
+            left_border = sink_x - shower_width
+            right_border = sink_x + sink_width
+            top_border = sink_x + sink_height
+            bottom_border = sink_x + sink_height + shower_height
+            print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
+            print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
+            if (shower_x > left_border) and (shower_x < right_border) and (shower_y > top_border) and (shower_y < bottom_border):
+              print('    [INFO] East type bathroom configuration found')
+              writeToFile(f'{output_log}report.txt', 'a', f"\n- Potential East type bathroom; L:{left_border} | X:{shower_x} | R:{right_border} / T:{top_border} | Y:{shower_y} | B:{bottom_border}")
+            print('  [DEBUG] Looking for West config')
+            left_border = sink_x - sink_width
+            right_border = sink_x + sink_width + shower_width
+            top_border = sink_y - sink_height - shower_height
+            bottom_border = sink_y + sink_height
+            print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
+            print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
+            if (shower_x > left_border) and (shower_x < right_border) and (shower_y > top_border) and (shower_y < bottom_border):
+              print('    [INFO] West type bathroom configuration found')
+              writeToFile(f'{output_log}report.txt', 'a', f"\n- Potential West type bathroom; L:{left_border} | X:{shower_x} | R:{right_border} / T:{top_border} | Y:{shower_y} | B:{bottom_border}")
     else:
       writeToFile(f'{output_log}report.txt', 'a', f'- No items detected for that floorplan\n')
       writeToFile(f'{output_log}report.html', 'a', f'<B><FONT COLOR="red">No items detected for that floorplan</FONT></B></BR>')
