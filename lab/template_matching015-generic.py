@@ -54,7 +54,8 @@ def spotitems(floorplan_pic_rgb, floorplan_pic_gray, template_pic, template_w, t
     for pt in zip(*loc[::-1]):
       if (len(anti_duplicates)>0):
         for current_duplicate in anti_duplicates:
-          if (((pt[0]<anti_duplicates[current_duplicate]['minus_y']) or (pt[0]>anti_duplicates[current_duplicate]['plus_y'])) or ((pt[1]<anti_duplicates[current_duplicate]['minus_x']) or (pt[1]>anti_duplicates[current_duplicate]['plus_x']))):
+          # if (((pt[0]<anti_duplicates[current_duplicate]['minus_y']) or (pt[0]>anti_duplicates[current_duplicate]['plus_y'])) or ((pt[1]<anti_duplicates[current_duplicate]['minus_x']) or (pt[1]>anti_duplicates[current_duplicate]['plus_x']))):
+          if (((pt[1]<anti_duplicates[current_duplicate]['minus_y']) or (pt[1]>anti_duplicates[current_duplicate]['plus_y'])) or ((pt[0]<anti_duplicates[current_duplicate]['minus_x']) or (pt[0]>anti_duplicates[current_duplicate]['plus_x']))):
              notDuplicate = True
           else:
             writeToFile(f'{output_log}bathfinder.log', 'a', f'\n  [INFO] Duplicate found: {item_type} located {pt}, will NOT draw \n')
@@ -63,9 +64,12 @@ def spotitems(floorplan_pic_rgb, floorplan_pic_gray, template_pic, template_w, t
       if (notDuplicate == True):
         rndid=id_generator()
         writeToFile(f'{output_log}bathfinder.log', 'a', f'\n  [INFO] New {item_type} ({rndid}) located {pt}, will draw \n')
-        detected_items[rndid] = { 'type':item_type, 'x':pt[1], 'y':pt[0], 'height':template_h, 'width':template_w }
-        anti_duplicates[rndid] = { 'duptype':item_type, 'subtype':item_subtype, 'minus_x':pt[1] - 10, 'minus_y':pt[0] - 10, 'plus_x':pt[1] + 10, 'plus_y':pt[0] + 10 }
-        writeToFile(f'{output_log}bathfinder.log', 'a', f'  [DEBUG] New duplicate added to the list: duptype={item_type}, subtype={item_subtype}, minus_x={pt[1] - 10}, minus_y={pt[0] - 10}, plus_x={pt[1] + 10}, plus_y={pt[0] + 10} \n')
+        # detected_items[rndid] = { 'type':item_type, 'x':pt[1], 'y':pt[0], 'height':template_h, 'width':template_w }
+        # anti_duplicates[rndid] = { 'duptype':item_type, 'subtype':item_subtype, 'minus_x':pt[1] - 10, 'minus_y':pt[0] - 10, 'plus_x':pt[1] + 10, 'plus_y':pt[0] + 10 }
+        # writeToFile(f'{output_log}bathfinder.log', 'a', f'  [DEBUG] New duplicate added to the list: duptype={item_type}, subtype={item_subtype}, minus_x={pt[1] - 10}, minus_y={pt[0] - 10}, plus_x={pt[1] + 10}, plus_y={pt[0] + 10} \n')
+        detected_items[rndid] = { 'type':item_type, 'x':pt[0], 'y':pt[1], 'height':template_h, 'width':template_w }
+        anti_duplicates[rndid] = { 'duptype':item_type, 'subtype':item_subtype, 'minus_x':pt[0] - 10, 'minus_y':pt[1] - 10, 'plus_x':pt[0] + 10, 'plus_y':pt[1] + 10 }
+        writeToFile(f'{output_log}bathfinder.log', 'a', f'  [DEBUG] New duplicate added to the list: duptype={item_type}, subtype={item_subtype}, minus_x={pt[0] - 10}, minus_y={pt[1] - 10}, plus_x={pt[0] + 10}, plus_y={pt[1] + 10} \n')
 
 def drawdetecteditems():
   for current_item in detected_items:
@@ -91,8 +95,10 @@ def drawdetecteditems():
         border_color_r = 0
         border_color_g = 0 
         border_color_b = 100
-    cv.rectangle(floorplan_rgb, (detected_items[current_item]['y'], detected_items[current_item]['x']), (detected_items[current_item]['y'] + detected_items[current_item]['width'], detected_items[current_item]['x'] + detected_items[current_item]['height']), (border_color_r,border_color_g,border_color_b), 2)
-    cv.putText(floorplan_rgb, f'{current_item}', (detected_items[current_item]['y'] + 5, detected_items[current_item]['x'] - 3), cv.FONT_HERSHEY_PLAIN, 1, (border_color_r,border_color_g,border_color_b), 1, cv.LINE_AA)
+    # cv.rectangle(floorplan_rgb, (detected_items[current_item]['y'], detected_items[current_item]['x']), (detected_items[current_item]['y'] + detected_items[current_item]['width'], detected_items[current_item]['x'] + detected_items[current_item]['height']), (border_color_r,border_color_g,border_color_b), 2)
+    cv.rectangle(floorplan_rgb, (detected_items[current_item]['x'], detected_items[current_item]['y']), (detected_items[current_item]['x'] + detected_items[current_item]['width'], detected_items[current_item]['y'] + detected_items[current_item]['height']), (border_color_r,border_color_g,border_color_b), 2)
+    # cv.putText(floorplan_rgb, f'{current_item}', (detected_items[current_item]['y'] + 5, detected_items[current_item]['x'] - 3), cv.FONT_HERSHEY_PLAIN, 1, (border_color_r,border_color_g,border_color_b), 1, cv.LINE_AA)
+    cv.putText(floorplan_rgb, f'{current_item}', (detected_items[current_item]['x'] + 5, detected_items[current_item]['y'] - 3), cv.FONT_HERSHEY_PLAIN, 1, (border_color_r,border_color_g,border_color_b), 1, cv.LINE_AA)
 
 runid=id_generator()
 print(f'[INFO] New run ({runid})')
@@ -280,10 +286,10 @@ for current_floorplan in input_floorplans_list:
           # print(f"  [DEBUG] sink: {current_sink} Y:{detected_items[current_sink]['y']}")
           # print(f"  [DEBUG] sink: {current_sink} H:{detected_items[current_sink]['height']}")
           # print(f"  [DEBUG] sink: {current_sink} W:{detected_items[current_sink]['width']}")
-          sink_x = detected_items[current_sink]['y']
-          sink_y = detected_items[current_sink]['x']
-          sink_height = detected_items[current_sink]['width']
-          sink_width = detected_items[current_sink]['height']
+          sink_x = detected_items[current_sink]['x']
+          sink_y = detected_items[current_sink]['y']
+          sink_height = detected_items[current_sink]['height']
+          sink_width = detected_items[current_sink]['width']
           for current_shower in showers_list:
             writeToFile(f'{output_log}bathfinder.log', 'a', f'  [INFO] Sink: {current_sink} Shower: {current_shower}\n')
             shower_x = detected_items[current_shower]['x']
@@ -311,6 +317,9 @@ for current_floorplan in input_floorplans_list:
             right_border = sink_x
             top_border = sink_y - shower_height
             bottom_border = sink_y + sink_height
+            # cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (166,166,166), 2)
+            # cv.putText(floorplan_rgb, f'S {current_sink} - {current_shower}', (left_border, top_border - 3), cv.FONT_HERSHEY_PLAIN, 1, (166,166,166), 1, cv.LINE_AA)
+            # cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
             print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
             print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
             writeToFile(f'{output_log}bathfinder.log', 'a', f'      [INFO] SOUTH\n')
@@ -324,6 +333,9 @@ for current_floorplan in input_floorplans_list:
             right_border = sink_x + sink_width
             top_border = sink_x + sink_height
             bottom_border = sink_x + sink_height + shower_height
+            # cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (166,166,166), 2)
+            # cv.putText(floorplan_rgb, f'E {current_sink} - {current_shower}', (left_border, top_border - 3), cv.FONT_HERSHEY_PLAIN, 1, (166,166,166), 1, cv.LINE_AA)
+            # cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
             print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
             print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
             writeToFile(f'{output_log}bathfinder.log', 'a', f'      [INFO] EAST\n')
@@ -337,6 +349,9 @@ for current_floorplan in input_floorplans_list:
             right_border = sink_x + sink_width + shower_width
             top_border = sink_y - sink_height - shower_height
             bottom_border = sink_y + sink_height
+            # cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (166,166,166), 2)
+            # cv.putText(floorplan_rgb, f'W {current_sink} - {current_shower}', (left_border, top_border - 3), cv.FONT_HERSHEY_PLAIN, 1, (166,166,166), 1, cv.LINE_AA)
+            # cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
             print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
             print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
             writeToFile(f'{output_log}bathfinder.log', 'a', f'      [INFO] WEST\n')
