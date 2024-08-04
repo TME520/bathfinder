@@ -21,8 +21,8 @@ bottom_border = sink_y + sink_width + shower_width
 
 - West
 
-left_border = sink_x - sink_width
-right_border = sink_x + sink_width + shower_width
-top_border = sink_y - sink_height - shower_height
-bottom_border = sink_y + sink_height
+left_border = sink_x - sink_height
+right_border = sink_x + sink_height + shower_height
+top_border = sink_y - sink_width - shower_width
+bottom_border = sink_y
 

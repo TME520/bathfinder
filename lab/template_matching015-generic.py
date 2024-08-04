@@ -301,9 +301,8 @@ for current_floorplan in input_floorplans_list:
             right_border = sink_x + sink_width + shower_width
             top_border = sink_y - sink_height
             bottom_border = sink_y + sink_height
-            cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (166,166,166), 2)
-            cv.putText(floorplan_rgb, f'N {current_sink} - {current_shower}', (left_border, top_border - 3), cv.FONT_HERSHEY_PLAIN, 1, (166,166,166), 1, cv.LINE_AA)
-            cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
+            cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (166,166,166), -1)
+            cv.imwrite(f'{output_image}{current_floorplan}-golden_bathroom_area.png',floorplan_rgb)
             print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
             print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
             writeToFile(f'{output_log}bathfinder.log', 'a', f'      [INFO] NORTH\n')
@@ -317,9 +316,8 @@ for current_floorplan in input_floorplans_list:
             right_border = sink_x
             top_border = sink_y - shower_height
             bottom_border = sink_y + sink_height
-            cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (66,66,66), 2)
-            cv.putText(floorplan_rgb, f'S {current_sink} - {current_shower}', (left_border, top_border - 3), cv.FONT_HERSHEY_PLAIN, 1, (66,66,66), 1, cv.LINE_AA)
-            cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
+            cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (166,166,166), -1)
+            cv.imwrite(f'{output_image}{current_floorplan}-golden_bathroom_area.png',floorplan_rgb)
             print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
             print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
             writeToFile(f'{output_log}bathfinder.log', 'a', f'      [INFO] SOUTH\n')
@@ -333,9 +331,8 @@ for current_floorplan in input_floorplans_list:
             right_border = sink_x + sink_height
             top_border = sink_y + sink_width
             bottom_border = sink_y + sink_width + shower_width
-            cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (200,200,200), 2)
-            cv.putText(floorplan_rgb, f'E {current_sink} - {current_shower}', (left_border, top_border - 3), cv.FONT_HERSHEY_PLAIN, 1, (200,200,200), 1, cv.LINE_AA)
-            cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
+            cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (166,166,166), -1)
+            cv.imwrite(f'{output_image}{current_floorplan}-golden_bathroom_area.png',floorplan_rgb)
             print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
             print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
             writeToFile(f'{output_log}bathfinder.log', 'a', f'      [INFO] EAST\n')
@@ -345,13 +342,12 @@ for current_floorplan in input_floorplans_list:
               print('    [INFO] East type bathroom configuration found')
               writeToFile(f'{output_log}report.txt', 'a', f"\n- Potential East type bathroom; L:{left_border} | X:{shower_x} | R:{right_border} / T:{top_border} | Y:{shower_y} | B:{bottom_border}")
             print('  [DEBUG] Looking for West config')
-            left_border = sink_x - sink_width
-            right_border = sink_x + sink_width + shower_width
-            top_border = sink_y - sink_height - shower_height
-            bottom_border = sink_y + sink_height
-            # cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (166,166,166), 2)
-            # cv.putText(floorplan_rgb, f'W {current_sink} - {current_shower}', (left_border, top_border - 3), cv.FONT_HERSHEY_PLAIN, 1, (166,166,166), 1, cv.LINE_AA)
-            # cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
+            left_border = sink_x - sink_height
+            right_border = sink_x + sink_height + shower_height
+            top_border = sink_y - sink_width - shower_width
+            bottom_border = sink_y
+            cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (166,166,166), -1)
+            cv.imwrite(f'{output_image}{current_floorplan}-golden_bathroom_area.png',floorplan_rgb)
             print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
             print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
             writeToFile(f'{output_log}bathfinder.log', 'a', f'      [INFO] WEST\n')
