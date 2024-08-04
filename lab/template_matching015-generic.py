@@ -295,8 +295,6 @@ for current_floorplan in input_floorplans_list:
             right_border = sink_x + sink_width + shower_width
             top_border = sink_y - sink_height
             bottom_border = sink_y + sink_height
-            # cv.rectangle(floorplan_rgb, (top_border, left_border), (bottom_border, right_border), (166,166,166), 2)
-            # cv.putText(floorplan_rgb, f'N {current_sink} - {current_shower}', (top_border, left_border - 3), cv.FONT_HERSHEY_PLAIN, 1, (166,166,166), 1, cv.LINE_AA)
             cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (166,166,166), 2)
             cv.putText(floorplan_rgb, f'N {current_sink} - {current_shower}', (left_border, top_border - 3), cv.FONT_HERSHEY_PLAIN, 1, (166,166,166), 1, cv.LINE_AA)
             cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
@@ -313,11 +311,6 @@ for current_floorplan in input_floorplans_list:
             right_border = sink_x
             top_border = sink_y - shower_height
             bottom_border = sink_y + sink_height
-            # cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (155,155,155), 4)
-            # cv.rectangle(floorplan_rgb, (top_border, left_border), (bottom_border, right_border), (155,155,155), 4)
-            # cv.putText(floorplan_rgb, f'S Si:{current_sink} Sh:{current_shower}', (left_border, top_border), cv.FONT_HERSHEY_PLAIN, 1, (155,155,155), 1, cv.LINE_AA)
-            # cv.putText(floorplan_rgb, f'S Si:{current_sink} Sh:{current_shower}', (top_border, left_border), cv.FONT_HERSHEY_PLAIN, 1, (155,155,155), 1, cv.LINE_AA)
-            cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
             print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
             print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
             writeToFile(f'{output_log}bathfinder.log', 'a', f'      [INFO] SOUTH\n')
@@ -331,11 +324,6 @@ for current_floorplan in input_floorplans_list:
             right_border = sink_x + sink_width
             top_border = sink_x + sink_height
             bottom_border = sink_x + sink_height + shower_height
-            # cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (144,144,144), 4)
-            # cv.rectangle(floorplan_rgb, (top_border, left_border), (bottom_border, right_border), (144,144,144), 4)
-            # cv.putText(floorplan_rgb, f'E Si:{current_sink} Sh:{current_shower}', (left_border, top_border), cv.FONT_HERSHEY_PLAIN, 1, (144,144,144), 1, cv.LINE_AA)
-            # cv.putText(floorplan_rgb, f'E Si:{current_sink} Sh:{current_shower}', (top_border, left_border), cv.FONT_HERSHEY_PLAIN, 1, (144,144,144), 1, cv.LINE_AA)
-            cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
             print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
             print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
             writeToFile(f'{output_log}bathfinder.log', 'a', f'      [INFO] EAST\n')
@@ -349,11 +337,6 @@ for current_floorplan in input_floorplans_list:
             right_border = sink_x + sink_width + shower_width
             top_border = sink_y - sink_height - shower_height
             bottom_border = sink_y + sink_height
-            # cv.rectangle(floorplan_rgb, (left_border, top_border), (right_border, bottom_border), (133,133,133), 4)
-            # cv.rectangle(floorplan_rgb, (top_border, left_border), (bottom_border, right_border), (133,133,133), 4)
-            # cv.putText(floorplan_rgb, f'W Si:{current_sink} Sh:{current_shower}', (left_border, top_border), cv.FONT_HERSHEY_PLAIN, 1, (133,133,133), 1, cv.LINE_AA)
-            # cv.putText(floorplan_rgb, f'W Si:{current_sink} Sh:{current_shower}', (top_border, left_border, top_border), cv.FONT_HERSHEY_PLAIN, 1, (133,133,133), 1, cv.LINE_AA)
-            cv.imwrite(f'{output_image}{current_floorplan}-detected_items.png',floorplan_rgb)
             print(f'    [DEBUG] L:{left_border} | X:{shower_x} | R:{right_border}')
             print(f'    [DEBUG] T:{top_border} | Y:{shower_y} | B:{bottom_border}')
             writeToFile(f'{output_log}bathfinder.log', 'a', f'      [INFO] WEST\n')
